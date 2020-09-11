@@ -17,6 +17,7 @@
 		933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15D0250B518B00A3210E /* SceneDelegate.swift */; };
 		933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15DA250B571000A3210E /* HomeTableViewCell.xib */; };
 		933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DC250B590800A3210E /* HomeTableViewCell.swift */; };
+		933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DE250B6BCD00A3210E /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		933B15D0250B518B00A3210E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		933B15DA250B571000A3210E /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		933B15DC250B590800A3210E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		933B15DE250B6BCD00A3210E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				933B15C8250B518B00A3210E /* Home.storyboard */,
 				933B15C9250B518B00A3210E /* HomeViewController.swift */,
+				933B15DE250B6BCD00A3210E /* HomeViewModel.swift */,
 				933B15DA250B571000A3210E /* HomeTableViewCell.xib */,
 				933B15DC250B590800A3210E /* HomeTableViewCell.swift */,
 			);
@@ -293,6 +296,7 @@
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
+				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
 				933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

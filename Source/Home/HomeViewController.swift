@@ -34,10 +34,10 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
-            fatalError("Issue dequeuing Home cell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: homeCell, for: indexPath) as? HomeTableViewCell else {
+            fatalError("Issue dequeuing \(homeCell)")
         }
-        let viewModel = HomeTableViewModel(titleLabel: "Sleeping",
+        let viewModel = HomeCellViewModel(titleLabel: "Sleeping",
                                            detailLabel: "xyz",
                                            durationLabel: "00:23:22")
         cell.render(with: viewModel)
