@@ -15,20 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uK4-RJ-VBO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-iL-c2s">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="h70-0G-wUF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lpq-bl-KSn"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uK4-RJ-VBO" secondAttribute="trailing" id="0Wo-E6-R0g"/>
-                            <constraint firstItem="uK4-RJ-VBO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dBG-YK-mci"/>
-                            <constraint firstItem="uK4-RJ-VBO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="feU-7H-MbN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uK4-RJ-VBO" secondAttribute="bottom" id="mGQ-69-Oo4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i2P-iL-c2s" secondAttribute="trailing" id="2dT-tM-UN9"/>
+                            <constraint firstItem="i2P-iL-c2s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cik-I3-K8q"/>
+                            <constraint firstItem="i2P-iL-c2s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eRq-xI-JLk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i2P-iL-c2s" secondAttribute="bottom" id="vYc-v6-7yR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="i2P-iL-c2s" id="B2P-Hq-wSv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

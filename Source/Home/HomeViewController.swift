@@ -9,12 +9,38 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private let homeCell = "HomeTableViewCell"
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupTableView()
     }
-
-
+    
+    private func setupTableView() {
+        tableView.register(UINib.init(nibName: homeCell, bundle: nil), forCellReuseIdentifier: homeCell)
+    }
 }
 
+extension HomeViewController: UITableViewDelegate {
+    
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
+            fatalError("Issue dequeuing Home cell")
+        }
+        let viewModel = HomeTableViewModel(titleLabel: "Sleeping",
+                                           detailLabel: "xyz",
+                                           durationLabel: "00:23:22")
+        cell.render(with: viewModel)
+        return cell
+    }
+}
