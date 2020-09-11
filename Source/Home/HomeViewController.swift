@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  babytracker
 //
-//  Created by Empower on 10/9/20.
+//  Created by Ai-Lyn Tang on 10/9/20.
 //  Copyright © 2020 WhimLyn. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
