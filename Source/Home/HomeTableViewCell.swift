@@ -17,6 +17,9 @@ final class HomeTableViewCell: UITableViewCell {
     
     func render(with viewModel: HomeCellViewModel) {
         
+        if let image = viewModel.icon {
+            iconImageView.image = image
+        }
         titleLabel.text = viewModel.titleLabel
         detailLabel.text = viewModel.detailLabel
         durationLabel.text = viewModel.durationLabel != nil
@@ -26,6 +29,8 @@ final class HomeTableViewCell: UITableViewCell {
 }
 
 struct HomeCellViewModel {
+    
+    let icon: UIImage?
     let titleLabel: String
     let detailLabel: String
     let durationLabel: String?

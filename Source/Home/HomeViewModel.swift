@@ -6,7 +6,7 @@
 //  Copyright © 2020 WhimLyn. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct HomeViewModel {
     
@@ -14,15 +14,18 @@ struct HomeViewModel {
                                             feedingCellViewModel,
                                             diaperCellViewModel]
     
-    private let sleepingCellViewModel = HomeCellViewModel(titleLabel: "Sleeping",
+    private let sleepingCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
+                                                          titleLabel: "Sleeping",
                                                           detailLabel: "2h 38m - 3h 02m ago",
                                                           durationLabel: "00:46:23")
     
-    private let feedingCellViewModel = HomeCellViewModel(titleLabel: "Feeding",
+    private let feedingCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
+                                                         titleLabel: "Feeding",
                                                          detailLabel: "(L) 0m, (R*) 3m - 1h 02m ago",
                                                          durationLabel: "00:06:23")
     
-    private let diaperCellViewModel = HomeCellViewModel(titleLabel: "Diaper",
+    private let diaperCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
+                                                        titleLabel: "Diaper",
                                                         detailLabel: "Both - 0h 02m ago",
                                                         durationLabel: "")
 }
