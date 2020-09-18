@@ -16,14 +16,17 @@ final class HomeTableViewCell: UITableViewCell {
     @IBOutlet private weak var durationLabel: UILabel!
     
     func render(with viewModel: HomeCellViewModel) {
+        
         titleLabel.text = viewModel.titleLabel
         detailLabel.text = viewModel.detailLabel
-        durationLabel.text = viewModel.durationLabel
+        durationLabel.text = viewModel.durationLabel != nil
+            ? viewModel.durationLabel
+            : ""
     }
 }
 
 struct HomeCellViewModel {
     let titleLabel: String
     let detailLabel: String
-    let durationLabel: String
+    let durationLabel: String?
 }
