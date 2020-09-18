@@ -13,7 +13,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private let homeCell = "HomeTableViewCell"
-   
+    private var viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -30,17 +31,15 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.cellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: homeCell, for: indexPath) as? HomeTableViewCell else {
             fatalError("Issue dequeuing \(homeCell)")
         }
-        let viewModel = HomeCellViewModel(titleLabel: "Sleeping",
-                                           detailLabel: "xyz",
-                                           durationLabel: "00:23:22")
-        cell.render(with: viewModel)
+
+        cell.render(with: viewModel.cellViewModels[indexPath.row])
         return cell
     }
 }

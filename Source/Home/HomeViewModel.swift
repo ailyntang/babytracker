@@ -8,8 +8,11 @@
 
 import Foundation
 
-final class HomeViewModel {
+struct HomeViewModel {
     
-    let cellViewModels = [HomeCellViewModel]()
+    private(set) lazy var cellViewModels = [sleepingCellViewModel]
     
+    private let sleepingCellViewModel = HomeCellViewModel(titleLabel: "Sleeping",
+                                                          detailLabel: "2h 38m - 3h 02m ago",
+                                                          durationLabel: "00:46:23")
 }
