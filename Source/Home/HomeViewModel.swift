@@ -18,17 +18,17 @@ struct HomeViewModel {
                                                           titleLabel: "Sleeping",
                                                           detailLabel: "2h 38m - 3h 02m ago",
                                                           durationLabel: "00:46:23",
-                                                          viewController: SleepViewController())
+                                                          storyboardID: "Sleep")
     
     private let feedingCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
                                                          titleLabel: "Feeding",
                                                          detailLabel: "(L) 0m, (R*) 3m - 1h 02m ago",
                                                          durationLabel: "00:06:23",
-                                                         viewController: SleepViewController())
+                                                         storyboardID: "Sleep")
     
     private let diaperCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
                                                         titleLabel: "Diaper",
                                                         detailLabel: "Both - 0h 02m ago",
                                                         durationLabel: "",
-                                                        viewController: SleepViewController())
+                                                        storyboardID: "Sleep")
 }

@@ -30,9 +30,11 @@ extension HomeViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // TODO: adding the let instead of pushing `SleepViewController` makes the animation pause. Why?
-        let viewController = viewModel.cellViewModels[indexPath.row].viewController
-        navigationController?.pushViewController(viewController, animated: true)
+        let storyboardID = viewModel.cellViewModels[indexPath.row].storyboardID
+        
+        let storyboard = UIStoryboard(name: storyboardID, bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: storyboardID)
+        show(secondVC, sender: self)
     }
 }
 

@@ -34,5 +34,5 @@ struct HomeCellViewModel {
     let titleLabel: String
     let detailLabel: String
     let durationLabel: String?
-    let viewController: UIViewController
+    let storyboardID: String
 }

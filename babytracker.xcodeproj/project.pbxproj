@@ -19,6 +19,7 @@
 		933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DC250B590800A3210E /* HomeTableViewCell.swift */; };
 		933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DE250B6BCD00A3210E /* HomeViewModel.swift */; };
 		933B15E2251598E100A3210E /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15E1251598E100A3210E /* SleepViewController.swift */; };
+		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		933B15DC250B590800A3210E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		933B15DE250B6BCD00A3210E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		933B15E1251598E100A3210E /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 		933B15E02515982400A3210E /* Sleep */ = {
 			isa = PBXGroup;
 			children = (
+				933B15E325159DB200A3210E /* Sleep.storyboard */,
 				933B15E1251598E100A3210E /* SleepViewController.swift */,
 			);
 			path = Sleep;
@@ -279,6 +282,7 @@
 				933B15D4250B518C00A3210E /* LaunchScreen.storyboard in Resources */,
 				933B15D1250B518C00A3210E /* Home.storyboard in Resources */,
 				933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */,
+				933B15E425159DB200A3210E /* Sleep.storyboard in Resources */,
 				933B15D3250B518C00A3210E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
