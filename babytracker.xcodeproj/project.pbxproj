@@ -18,6 +18,7 @@
 		933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15DA250B571000A3210E /* HomeTableViewCell.xib */; };
 		933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DC250B590800A3210E /* HomeTableViewCell.swift */; };
 		933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DE250B6BCD00A3210E /* HomeViewModel.swift */; };
+		933B15E2251598E100A3210E /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15E1251598E100A3210E /* SleepViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		933B15DA250B571000A3210E /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		933B15DC250B590800A3210E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		933B15DE250B6BCD00A3210E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		933B15E1251598E100A3210E /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				933B15C7250B518B00A3210E /* Home */,
+				933B15E02515982400A3210E /* Sleep */,
 				933B15CA250B518B00A3210E /* Assets.xcassets */,
 				933B15CB250B518B00A3210E /* Supporting Files */,
 				933B15CE250B518B00A3210E /* Startup */,
@@ -159,6 +162,14 @@
 				933B15D0250B518B00A3210E /* SceneDelegate.swift */,
 			);
 			path = Startup;
+			sourceTree = "<group>";
+		};
+		933B15E02515982400A3210E /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				933B15E1251598E100A3210E /* SleepViewController.swift */,
+			);
+			path = Sleep;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
