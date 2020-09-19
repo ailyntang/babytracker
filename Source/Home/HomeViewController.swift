@@ -26,10 +26,18 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // TODO: adding the let instead of pushing `SleepViewController` makes the animation pause. Why?
+        let viewController = viewModel.cellViewModels[indexPath.row].viewController
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }
