@@ -25,9 +25,9 @@ final class SleepViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
-//        let viewController = SleepViewController()
-//        viewController.modalPresentationStyle = .popover
-//        present(SleepViewController(), animated: true, completion: nil)
+        let viewController = SleepViewController()
+        viewController.modalPresentationStyle = .popover
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func tapEndTimeButton(_ sender: UIButton) {
