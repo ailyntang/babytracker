@@ -10,8 +10,27 @@ import UIKit
 
 final class SleepViewController: UIViewController {
     
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var startTimeButton: UIButton!
+    @IBOutlet private weak var endTimeButton: UIButton!
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func tapStartTimeButton(_ sender: UIButton) {
+//        let viewController = SleepViewController()
+//        viewController.modalPresentationStyle = .popover
+//        present(SleepViewController(), animated: true, completion: nil)
+    }
+    
+    @IBAction func tapEndTimeButton(_ sender: UIButton) {
+    }
+    
 }
