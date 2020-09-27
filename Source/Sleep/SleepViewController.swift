@@ -25,8 +25,9 @@ final class SleepViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
-        let viewController = SleepViewController()
-        viewController.modalPresentationStyle = .popover
+
+        let viewController = TimePickerViewController()
+        viewController.modalPresentationStyle = .overFullScreen
         present(viewController, animated: true, completion: nil)
     }
     
