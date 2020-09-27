@@ -26,12 +26,12 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboardID = viewModel.cellViewModels[indexPath.row].storyboardID
-        
         let storyboard = UIStoryboard(name: storyboardID, bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: storyboardID)
         show(secondVC, sender: self)
