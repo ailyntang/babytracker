@@ -21,8 +21,9 @@
 		933B15E2251598E100A3210E /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15E1251598E100A3210E /* SleepViewController.swift */; };
 		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
 		933B15E72520571200A3210E /* TimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* TimePicker.xib */; };
-		933B15E925206FDF00A3210E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15E825206FDF00A3210E /* TimePickerViewController.swift */; };
 		933B15ED252078BA00A3210E /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* TimePicker.swift */; };
+		933B15EF25216D8F00A3210E /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15EE25216D8F00A3210E /* TimePickerViewController.xib */; };
+		933B15F125216DAD00A3210E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15F025216DAD00A3210E /* TimePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +64,9 @@
 		933B15E1251598E100A3210E /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		933B15E62520571200A3210E /* TimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePicker.xib; sourceTree = "<group>"; };
-		933B15E825206FDF00A3210E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		933B15EC252078BA00A3210E /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		933B15EE25216D8F00A3210E /* TimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
+		933B15F025216DAD00A3210E /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +189,8 @@
 			children = (
 				933B15E62520571200A3210E /* TimePicker.xib */,
 				933B15EC252078BA00A3210E /* TimePicker.swift */,
-				933B15E825206FDF00A3210E /* TimePickerViewController.swift */,
+				933B15EE25216D8F00A3210E /* TimePickerViewController.xib */,
+				933B15F025216DAD00A3210E /* TimePickerViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				933B15D1250B518C00A3210E /* Home.storyboard in Resources */,
 				933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */,
 				933B15E425159DB200A3210E /* Sleep.storyboard in Resources */,
+				933B15EF25216D8F00A3210E /* TimePickerViewController.xib in Resources */,
 				933B15D3250B518C00A3210E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,9 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				933B15ED252078BA00A3210E /* TimePicker.swift in Sources */,
+				933B15F125216DAD00A3210E /* TimePickerViewController.swift in Sources */,
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
-				933B15E925206FDF00A3210E /* TimePickerViewController.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
 				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
