@@ -10,25 +10,24 @@ import UIKit
 
 final class TimePicker: UIView {
     
-    @IBOutlet var customView: UIView!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
-    
-    func commonInit() {
-        Bundle.main.loadNibNamed("TimePicker", owner: self, options: nil)
-        print("yup")
-        customView.backgroundColor = .blue
-        titleLabel.text = "YOYOYO"
+
+    private func commonInit() {
+
+        let bundle = Bundle.init(for: TimePicker.self)
+        if let viewsToAdd = bundle.loadNibNamed("TimePicker", owner: self, options: nil),
+            let contentView = viewsToAdd.first as? UIView {
+            addSubview(contentView)
+            contentView.frame = self.bounds
+            contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        }
     }
-    
 }
