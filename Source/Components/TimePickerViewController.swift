@@ -10,4 +10,28 @@ import UIKit
 
 final class TimePickerViewController: UIViewController {
     
+    private lazy var myLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hello there moopie"
+        return label
+    }()
+    
+    override func loadView() {
+        view = UIView()
+        view.addSubview(myLabel)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .red
+        setConstraints()
+    }
+    
+    private func setConstraints() {
+        myLabel.translatesAutoresizingMaskIntoConstraints = false
+        myLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        myLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        myLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
 }
