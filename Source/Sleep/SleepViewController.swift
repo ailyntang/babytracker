@@ -26,7 +26,7 @@ final class SleepViewController: UIViewController {
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
 
-        let viewController = TimePickerViewController()
+        let viewController = TimePickerViewController2(nibName: "TimePickerViewController2", bundle: nil)
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
         present(viewController, animated: true, completion: nil)
@@ -48,6 +48,13 @@ extension SleepViewController: UIViewControllerTransitioningDelegate {
 final class HalfSizePresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
-         return CGRect(x: 100, y: 300, width: 200, height: 600)
+        
+        guard let containerView = containerView else {
+            fatalError("Container view of presentation controller does not exist")
+        }
+        
+        let height: CGFloat = 400.0
+        
+        return CGRect(x: 0, y: containerView.bounds.height - height, width: containerView.bounds.width, height: height)
     }
 }

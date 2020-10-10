@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93182AAC2531D9FB000F1F82 /* TimePickerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93182AAB2531D9FB000F1F82 /* TimePickerViewController2.swift */; };
 		933B15AE2509FEA700A3210E /* babytrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15AD2509FEA700A3210E /* babytrackerTests.swift */; };
 		933B15B92509FEA700A3210E /* babytrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15B82509FEA700A3210E /* babytrackerUITests.swift */; };
 		933B15D1250B518C00A3210E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15C8250B518B00A3210E /* Home.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93182AAB2531D9FB000F1F82 /* TimePickerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController2.swift; sourceTree = "<group>"; };
 		933B15932509FEA600A3210E /* babytracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = babytracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933B15A92509FEA700A3210E /* babytrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = babytrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933B15AD2509FEA700A3210E /* babytrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = babytrackerTests.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				933B15E62520571200A3210E /* TimePicker.xib */,
 				933B15EC252078BA00A3210E /* TimePicker.swift */,
 				933B15EE25216D8F00A3210E /* TimePickerViewController2.xib */,
+				93182AAB2531D9FB000F1F82 /* TimePickerViewController2.swift */,
 				933B15F025216DAD00A3210E /* TimePickerViewController.swift */,
 			);
 			path = Components;
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				933B15ED252078BA00A3210E /* TimePicker.swift in Sources */,
+				93182AAC2531D9FB000F1F82 /* TimePickerViewController2.swift in Sources */,
 				933B15F125216DAD00A3210E /* TimePickerViewController.swift in Sources */,
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
