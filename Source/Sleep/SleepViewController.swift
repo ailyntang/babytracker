@@ -26,10 +26,6 @@ final class SleepViewController: UIViewController {
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
 
-//        let viewController = TimePickerViewController()
-//        viewController.modalPresentationStyle = .fullScreen
-//        present(viewController, animated: true, completion: nil)
-        
         let viewController = TimePickerViewController()
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
@@ -52,6 +48,6 @@ extension SleepViewController: UIViewControllerTransitioningDelegate {
 final class HalfSizePresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
-         return CGRect(x: 100, y: 300, width: 200, height: 300)
+         return CGRect(x: 100, y: 300, width: 200, height: 600)
     }
 }

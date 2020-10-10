@@ -12,7 +12,9 @@ final class TimePickerViewController: UIViewController {
     
     private lazy var myLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hello there moopie"
+        label.text = "Hello there moopie moopie moopie so lots of lines"
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -30,7 +32,7 @@ final class TimePickerViewController: UIViewController {
     
     private func setConstraints() {
         myLabel.translatesAutoresizingMaskIntoConstraints = false
-        myLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        myLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
         myLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         myLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
