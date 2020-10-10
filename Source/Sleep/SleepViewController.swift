@@ -53,8 +53,9 @@ final class HalfSizePresentationController: UIPresentationController {
             fatalError("Container view of presentation controller does not exist")
         }
         
-        let height: CGFloat = 400.0
-        
-        return CGRect(x: 0, y: containerView.bounds.height - height, width: containerView.bounds.width, height: height)
+        return CGRect(x: 0,
+                      y: containerView.bounds.height - Layout.timePickerHeight,
+                      width: containerView.bounds.width,
+                      height: Layout.timePickerHeight)
     }
 }

@@ -31,3 +31,7 @@ final class TimePicker: UIView {
         }
     }
 }
+
+enum Layout {
+    static let timePickerHeight: CGFloat = 350.0
+}
