@@ -17,15 +17,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am a view now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVE-Ts-O2u">
-                    <rect key="frame" x="155" y="289" width="121" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-2c-jYm" customClass="TimePicker" customModule="babytracker" customModuleProvider="target">
+                    <rect key="frame" x="24" y="44" width="366" height="350"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="350" id="hht-QC-qwb"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="xCV-2c-jYm" firstAttribute="top" secondItem="VdM-8R-yri" secondAttribute="top" id="4Re-qO-8ZC"/>
+                <constraint firstItem="xCV-2c-jYm" firstAttribute="leading" secondItem="VdM-8R-yri" secondAttribute="leading" constant="24" id="5Te-G9-Dul"/>
+                <constraint firstItem="VdM-8R-yri" firstAttribute="trailing" secondItem="xCV-2c-jYm" secondAttribute="trailing" constant="24" id="gl1-wo-jg6"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="VdM-8R-yri"/>
             <point key="canvasLocation" x="-130" y="-407"/>
