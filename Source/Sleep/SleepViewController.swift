@@ -26,7 +26,7 @@ final class SleepViewController: UIViewController {
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
 
-        let viewController = TimePickerViewController2(nibName: "TimePickerViewController2", bundle: nil)
+        let viewController = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
         present(viewController, animated: true, completion: nil)
