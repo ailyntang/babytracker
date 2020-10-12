@@ -30,6 +30,8 @@ final class SleepViewController: UIViewController {
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
         present(viewController, animated: true, completion: nil)
+        
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
     }
     
     @IBAction func tapEndTimeButton(_ sender: UIButton) {
