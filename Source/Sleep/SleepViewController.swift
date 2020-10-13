@@ -22,6 +22,7 @@ final class SleepViewController: UIViewController {
     // MARK: - Properties
     
     private var startTimePicker: TimePickerViewController?
+    private var endTimePicker: TimePickerViewController?
     
     // MARK: - Lifecycle
     
@@ -32,30 +33,35 @@ final class SleepViewController: UIViewController {
     
     // MARK: - Actions
     
-    private func setupStartTimePicker() {
-        startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-        startTimePicker?.delegate = self
+    @IBAction func tapStartTimeButton(_ sender: UIButton) {
+        presentTimePicker(for: startTimeButton)
     }
     
-    @IBAction func tapStartTimeButton(_ sender: UIButton) {
+    @IBAction func tapEndTimeButton(_ sender: UIButton) {
+        presentTimePicker(for: endTimeButton)
+    }
+    
+    private func presentTimePicker(for button: UIButton) {
         
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        var timePickerViewController: TimePickerViewController?
         
-        if startTimePicker == nil {
+        if button == endTimeButton, endTimePicker == nil {
+            endTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+            endTimePicker?.delegate = self
+            timePickerViewController = endTimePicker
+            
+        } else if button == startTimeButton, startTimePicker == nil {
             startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
             startTimePicker?.delegate = self
+            timePickerViewController = startTimePicker
         }
         
-        guard let viewController = startTimePicker else {
-            fatalError("Start Time Picker is unexpectedly nil")
-        }
+        guard let viewController = timePickerViewController else {fatalError()}
         
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
         present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func tapEndTimeButton(_ sender: UIButton) {
     }
 }
 
