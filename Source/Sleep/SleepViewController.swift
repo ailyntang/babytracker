@@ -50,18 +50,18 @@ final class SleepViewController: UIViewController {
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         var timePickerViewController: TimePickerViewController?
         
-        if button == endTimeButton, endTimePicker == nil {
+        if button == endTimeButton {
             endTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
             endTimePicker?.delegate = self
             timePickerViewController = endTimePicker
             
-        } else if button == startTimeButton, startTimePicker == nil {
+        } else if button == startTimeButton {
             startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
             startTimePicker?.delegate = self
             timePickerViewController = startTimePicker
         }
         
-        guard let viewController = timePickerViewController else {fatalError()}
+        guard let viewController = timePickerViewController else { fatalError() }
         
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
