@@ -32,18 +32,27 @@ final class SleepViewController: UIViewController {
     
     // MARK: - Actions
     
+    private func setupStartTimePicker() {
+        startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+        startTimePicker?.delegate = self
+    }
+    
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
         
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
-        startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-        startTimePicker?.delegate = self
-        
-        if let viewController = startTimePicker {
-            viewController.modalPresentationStyle = .custom
-            viewController.transitioningDelegate = self
-            present(viewController, animated: true, completion: nil)
+        if startTimePicker == nil {
+            startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+            startTimePicker?.delegate = self
         }
+        
+        guard let viewController = startTimePicker else {
+            fatalError("Start Time Picker is unexpectedly nil")
+        }
+        
+        viewController.modalPresentationStyle = .custom
+        viewController.transitioningDelegate = self
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func tapEndTimeButton(_ sender: UIButton) {
