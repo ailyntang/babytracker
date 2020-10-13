@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93182AAC2531D9FB000F1F82 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93182AAB2531D9FB000F1F82 /* TimePickerViewController.swift */; };
 		933B15AE2509FEA700A3210E /* babytrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15AD2509FEA700A3210E /* babytrackerTests.swift */; };
 		933B15B92509FEA700A3210E /* babytrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15B82509FEA700A3210E /* babytrackerUITests.swift */; };
 		933B15D1250B518C00A3210E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15C8250B518B00A3210E /* Home.storyboard */; };
@@ -23,7 +22,6 @@
 		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
 		933B15E72520571200A3210E /* TimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* TimePicker.xib */; };
 		933B15ED252078BA00A3210E /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* TimePicker.swift */; };
-		933B15EF25216D8F00A3210E /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15EE25216D8F00A3210E /* TimePickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		93182AAB2531D9FB000F1F82 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		933B15932509FEA600A3210E /* babytracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = babytracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933B15A92509FEA700A3210E /* babytrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = babytrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933B15AD2509FEA700A3210E /* babytrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = babytrackerTests.swift; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		933B15E62520571200A3210E /* TimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePicker.xib; sourceTree = "<group>"; };
 		933B15EC252078BA00A3210E /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
-		933B15EE25216D8F00A3210E /* TimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +185,6 @@
 			children = (
 				933B15E62520571200A3210E /* TimePicker.xib */,
 				933B15EC252078BA00A3210E /* TimePicker.swift */,
-				933B15EE25216D8F00A3210E /* TimePickerViewController.xib */,
-				93182AAB2531D9FB000F1F82 /* TimePickerViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,7 +298,6 @@
 				933B15D1250B518C00A3210E /* Home.storyboard in Resources */,
 				933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */,
 				933B15E425159DB200A3210E /* Sleep.storyboard in Resources */,
-				933B15EF25216D8F00A3210E /* TimePickerViewController.xib in Resources */,
 				933B15D3250B518C00A3210E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				933B15ED252078BA00A3210E /* TimePicker.swift in Sources */,
-				93182AAC2531D9FB000F1F82 /* TimePickerViewController.swift in Sources */,
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,

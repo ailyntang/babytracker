@@ -8,12 +8,6 @@
 
 import UIKit
 
-// MARK: - TimePickerViewControllerDelegate
-
-protocol TimePickerViewControllerDelegate: AnyObject {
-    func dismiss()
-}
-
 // MARK: - SleepViewController
 
 final class SleepViewController: UIViewController {
@@ -24,9 +18,6 @@ final class SleepViewController: UIViewController {
     @IBOutlet private weak var endTimeButton: UIButton!
     
     // MARK: Properties
-    
-//    private var startTimePicker: TimePickerViewController?
-//    private var endTimePicker: TimePickerViewController?
     
     private var timePicker: TimePicker = TimePicker()
     
@@ -47,8 +38,6 @@ final class SleepViewController: UIViewController {
         let timePickerViewController = UIViewController()
         timePickerViewController.view.addSubview(timePicker)
         timePickerViewController.view.backgroundColor = .white
-        
-//        timePicker.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
         timePicker.delegate = self
         timePicker.updateTitle(to: "Start Time yoyo")
@@ -92,16 +81,6 @@ final class SleepViewController: UIViewController {
 //    }
 }
 
-// MARK: - Conformance to TimePickerViewControllerDelegate
-
-//extension SleepViewController: TimePickerViewControllerDelegate {
-//
-//    func dismiss() {
-//        view.backgroundColor = UIColor.white.withAlphaComponent(1)
-//        dismiss(animated: true, completion: nil)
-//    }
-//}
-
 // MARK: - Conformance to TimePickerDelegate
 
 extension SleepViewController: TimePickerDelegate {
@@ -114,11 +93,6 @@ extension SleepViewController: TimePickerDelegate {
     func save() {
         
     }
-
-//    func dismiss() {
-//        view.backgroundColor = UIColor.white.withAlphaComponent(1)
-//        dismiss(animated: true, completion: nil)
-//    }
 }
 
 // MARK: - Conformance to UIViewControllerTransitioningDelegate

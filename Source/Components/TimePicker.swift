@@ -8,6 +8,15 @@
 
 import UIKit
 
+// MARK: - TimePickerDelegate
+
+protocol TimePickerDelegate: AnyObject {
+    func cancel()
+    func save()
+}
+
+// MARK: - TimePicker
+
 final class TimePicker: UIView {
     
     // MARK: - Outlets
