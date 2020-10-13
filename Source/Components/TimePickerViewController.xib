@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimePickerViewController">
             <connections>
+                <outlet property="timePicker" destination="xCV-2c-jYm" id="rni-87-f4M"/>
                 <outlet property="view" destination="wX1-DX-WzA" id="53h-Gf-UkO"/>
             </connections>
         </placeholder>

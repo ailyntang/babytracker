@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol TimePickerViewControllerDelegate: AnyObject {
+    func dismiss()
+}
+
 final class SleepViewController: UIViewController {
     
     // MARK: - Outlets
     
     @IBOutlet private weak var startTimeButton: UIButton!
     @IBOutlet private weak var endTimeButton: UIButton!
+    
+    // MARK: - Properties
+    
+    private var startTimePicker: TimePickerViewController?
     
     // MARK: - Lifecycle
     
@@ -25,20 +33,30 @@ final class SleepViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
-
-        let viewController = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-        viewController.modalPresentationStyle = .custom
-        viewController.transitioningDelegate = self
-        present(viewController, animated: true, completion: nil)
         
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        
+        startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+        startTimePicker?.delegate = self
+        
+        if let viewController = startTimePicker {
+            viewController.modalPresentationStyle = .custom
+            viewController.transitioningDelegate = self
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapEndTimeButton(_ sender: UIButton) {
     }
-    
 }
 
+extension SleepViewController: TimePickerViewControllerDelegate {
+    
+    func dismiss() {
+        view.backgroundColor = UIColor.white.withAlphaComponent(1)
+        dismiss(animated: true, completion: nil)
+    }
+}
 extension SleepViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {

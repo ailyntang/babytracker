@@ -8,6 +8,31 @@
 
 import UIKit
 
+protocol TimePickerDelegate: AnyObject {
+    func cancel()
+    func save()
+}
+
 final class TimePickerViewController: UIViewController {
+    
+    @IBOutlet weak var timePicker: TimePicker!
+    
+    weak var delegate: TimePickerViewControllerDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        timePicker.delegate = self
+    }
+}
+
+extension TimePickerViewController: TimePickerDelegate {
+    func cancel() {
+        print("ypu yup")
+        delegate?.dismiss()
+    }
+    
+    func save() {
+        
+    }
     
 }

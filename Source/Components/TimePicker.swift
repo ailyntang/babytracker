@@ -10,6 +10,16 @@ import UIKit
 
 final class TimePicker: UIView {
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    // MARK: - Properties
+    
+    weak var delegate: TimePickerDelegate?
+    
+    // MARK: - Initialisation
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -30,7 +40,15 @@ final class TimePicker: UIView {
             contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         }
     }
+    
+    // MARK: - Methods
+    
+    @IBAction func tapCancelButton(_ sender: UIButton) {
+        delegate?.cancel()
+    }
 }
+
+// MARK: - Constants
 
 enum Layout {
     static let timePickerHeight: CGFloat = 350.0
