@@ -26,12 +26,20 @@ final class SleepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
-
+        timePicker.delegate = self
     }
     
     // MARK: Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
+        presentTimePicker(for: startTimeButton)
+    }
+    
+    @IBAction func tapEndTimeButton(_ sender: UIButton) {
+        presentTimePicker(for: endTimeButton)
+    }
+    
+    private func presentTimePicker(for button: UIButton) {
         
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
@@ -39,8 +47,8 @@ final class SleepViewController: UIViewController {
         timePickerViewController.view.addSubview(timePicker)
         timePickerViewController.view.backgroundColor = .white
         
-        timePicker.delegate = self
-        timePicker.updateTitle(to: "Start Time yoyo")
+        let title = button == startTimeButton ? "Start Time" : "End Time"
+        timePicker.updateTitle(to: title)
         timePicker.translatesAutoresizingMaskIntoConstraints = false
         timePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
         timePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
@@ -50,35 +58,7 @@ final class SleepViewController: UIViewController {
         timePickerViewController.modalPresentationStyle = .custom
         timePickerViewController.transitioningDelegate = self
         self.present(timePickerViewController, animated: true, completion: nil)
-//        presentTimePicker(for: startTimeButton)
     }
-    
-    @IBAction func tapEndTimeButton(_ sender: UIButton) {
-//        presentTimePicker(for: endTimeButton)
-    }
-    
-//    private func presentTimePicker(for button: UIButton) {
-//
-//        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-//        var timePickerViewController: TimePickerViewController?
-//
-//        if button == endTimeButton {
-//            endTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-//            endTimePicker?.delegate = self
-//            timePickerViewController = endTimePicker
-//
-//        } else if button == startTimeButton {
-//            startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-//            startTimePicker?.delegate = self
-//            timePickerViewController = startTimePicker
-//        }
-//
-//        guard let viewController = timePickerViewController else { fatalError() }
-//
-//        viewController.modalPresentationStyle = .custom
-//        viewController.transitioningDelegate = self
-//        present(viewController, animated: true, completion: nil)
-//    }
 }
 
 // MARK: - Conformance to TimePickerDelegate
@@ -91,7 +71,7 @@ extension SleepViewController: TimePickerDelegate {
     }
     
     func save() {
-        
+        // Placeholder
     }
 }
 

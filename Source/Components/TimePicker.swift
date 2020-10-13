@@ -19,16 +19,16 @@ protocol TimePickerDelegate: AnyObject {
 
 final class TimePicker: UIView {
     
-    // MARK: - Outlets
+    // MARK: Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var cancelButton: UIButton!
     
-    // MARK: - Properties
+    // MARK: Properties
     
     weak var delegate: TimePickerDelegate?
     
-    // MARK: - Initialisation
+    // MARK: Initialisation
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +51,7 @@ final class TimePicker: UIView {
         }
     }
     
-    // MARK: - Methods
+    // MARK: Methods
     
     @IBAction func tapCancelButton(_ sender: UIButton) {
         delegate?.cancel()
