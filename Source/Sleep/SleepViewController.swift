@@ -25,58 +25,100 @@ final class SleepViewController: UIViewController {
     
     // MARK: Properties
     
-    private var startTimePicker: TimePickerViewController?
-    private var endTimePicker: TimePickerViewController?
+//    private var startTimePicker: TimePickerViewController?
+//    private var endTimePicker: TimePickerViewController?
+    
+    private var timePicker: TimePicker = TimePicker()
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
+
     }
     
     // MARK: Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
-        presentTimePicker(for: startTimeButton)
+        
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        
+        let timePickerViewController = UIViewController()
+        timePickerViewController.view.addSubview(timePicker)
+        timePickerViewController.view.backgroundColor = .white
+        
+//        timePicker.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        
+        timePicker.delegate = self
+        timePicker.updateTitle(to: "Start Time yoyo")
+        timePicker.translatesAutoresizingMaskIntoConstraints = false
+        timePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
+        timePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
+        timePicker.trailingAnchor.constraint(equalTo: timePickerViewController.view.trailingAnchor).isActive = true
+        timePicker.heightAnchor.constraint(equalTo: timePickerViewController.view.heightAnchor).isActive = true
+        
+        timePickerViewController.modalPresentationStyle = .custom
+        timePickerViewController.transitioningDelegate = self
+        self.present(timePickerViewController, animated: true, completion: nil)
+//        presentTimePicker(for: startTimeButton)
     }
     
     @IBAction func tapEndTimeButton(_ sender: UIButton) {
-        presentTimePicker(for: endTimeButton)
+//        presentTimePicker(for: endTimeButton)
     }
     
-    private func presentTimePicker(for button: UIButton) {
-        
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        var timePickerViewController: TimePickerViewController?
-        
-        if button == endTimeButton {
-            endTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-            endTimePicker?.delegate = self
-            timePickerViewController = endTimePicker
-            
-        } else if button == startTimeButton {
-            startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
-            startTimePicker?.delegate = self
-            timePickerViewController = startTimePicker
-        }
-        
-        guard let viewController = timePickerViewController else { fatalError() }
-        
-        viewController.modalPresentationStyle = .custom
-        viewController.transitioningDelegate = self
-        present(viewController, animated: true, completion: nil)
-    }
+//    private func presentTimePicker(for button: UIButton) {
+//
+//        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+//        var timePickerViewController: TimePickerViewController?
+//
+//        if button == endTimeButton {
+//            endTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+//            endTimePicker?.delegate = self
+//            timePickerViewController = endTimePicker
+//
+//        } else if button == startTimeButton {
+//            startTimePicker = TimePickerViewController(nibName: "TimePickerViewController", bundle: nil)
+//            startTimePicker?.delegate = self
+//            timePickerViewController = startTimePicker
+//        }
+//
+//        guard let viewController = timePickerViewController else { fatalError() }
+//
+//        viewController.modalPresentationStyle = .custom
+//        viewController.transitioningDelegate = self
+//        present(viewController, animated: true, completion: nil)
+//    }
 }
 
 // MARK: - Conformance to TimePickerViewControllerDelegate
 
-extension SleepViewController: TimePickerViewControllerDelegate {
+//extension SleepViewController: TimePickerViewControllerDelegate {
+//
+//    func dismiss() {
+//        view.backgroundColor = UIColor.white.withAlphaComponent(1)
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
+
+// MARK: - Conformance to TimePickerDelegate
+
+extension SleepViewController: TimePickerDelegate {
     
-    func dismiss() {
+    func cancel() {
         view.backgroundColor = UIColor.white.withAlphaComponent(1)
         dismiss(animated: true, completion: nil)
     }
+    
+    func save() {
+        
+    }
+
+//    func dismiss() {
+//        view.backgroundColor = UIColor.white.withAlphaComponent(1)
+//        dismiss(animated: true, completion: nil)
+//    }
 }
 
 // MARK: - Conformance to UIViewControllerTransitioningDelegate

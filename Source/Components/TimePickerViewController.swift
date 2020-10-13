@@ -14,25 +14,25 @@ protocol TimePickerDelegate: AnyObject {
 }
 
 final class TimePickerViewController: UIViewController {
-    
-    @IBOutlet weak var timePicker: TimePicker!
-    
-    weak var delegate: TimePickerViewControllerDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        timePicker.delegate = self
-    }
-}
-
-extension TimePickerViewController: TimePickerDelegate {
-    func cancel() {
-        print("ypu yup")
-        delegate?.dismiss()
-    }
-    
-    func save() {
-        
-    }
-    
+//
+//    @IBOutlet weak var timePicker: TimePicker!
+//
+//    weak var delegate: TimePickerViewControllerDelegate?
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        timePicker.delegate = self
+//        timePicker.updateTitle(to: "yolo")
+//    }
+//}
+//
+//extension TimePickerViewController: TimePickerDelegate {
+//    
+//    func cancel() {
+//        delegate?.dismiss()
+//    }
+//
+//    func save() {
+//
+//    }
 }
