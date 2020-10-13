@@ -8,30 +8,34 @@
 
 import UIKit
 
+// MARK: - TimePickerViewControllerDelegate
+
 protocol TimePickerViewControllerDelegate: AnyObject {
     func dismiss()
 }
 
+// MARK: - SleepViewController
+
 final class SleepViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: Outlets
     
     @IBOutlet private weak var startTimeButton: UIButton!
     @IBOutlet private weak var endTimeButton: UIButton!
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private var startTimePicker: TimePickerViewController?
     private var endTimePicker: TimePickerViewController?
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
     }
     
-    // MARK: - Actions
+    // MARK: Actions
     
     @IBAction func tapStartTimeButton(_ sender: UIButton) {
         presentTimePicker(for: startTimeButton)
@@ -65,6 +69,8 @@ final class SleepViewController: UIViewController {
     }
 }
 
+// MARK: - Conformance to TimePickerViewControllerDelegate
+
 extension SleepViewController: TimePickerViewControllerDelegate {
     
     func dismiss() {
@@ -72,6 +78,9 @@ extension SleepViewController: TimePickerViewControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: - Conformance to UIViewControllerTransitioningDelegate
+
 extension SleepViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
@@ -79,6 +88,8 @@ extension SleepViewController: UIViewControllerTransitioningDelegate {
         return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
+
+// MARK: - HalfSizePresentationController
 
 final class HalfSizePresentationController: UIPresentationController {
     
