@@ -16,6 +16,7 @@ final class SleepViewController: UIViewController {
     
     @IBOutlet private weak var selectStartTimeButton: UIButton!
     @IBOutlet private weak var selectEndTimeButton: UIButton!
+    @IBOutlet private weak var startButton: UIButton!
     
     // MARK: Properties
     
@@ -37,6 +38,10 @@ final class SleepViewController: UIViewController {
     
     @IBAction func selectEndTime(_ sender: UIButton) {
         presentTimePicker(for: selectEndTimeButton)
+    }
+    
+    @IBAction func tapStartButton(_ sender: Any) {
+        
     }
     
     private func presentTimePicker(for button: UIButton) {

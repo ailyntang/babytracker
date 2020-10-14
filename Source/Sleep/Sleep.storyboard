@@ -100,6 +100,9 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapStartButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="g6I-4s-0Ky"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -120,8 +123,9 @@
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>
                     </view>
                     <connections>
-                        <outlet property="selectEndTimeButton" destination="maI-Hf-MjD" id="q4R-57-QHr"/>
+                        <outlet property="selectEndTimeButton" destination="aFs-FF-lQ5" id="4zH-EX-UTk"/>
                         <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
+                        <outlet property="startButton" destination="aFs-FF-lQ5" id="Xxz-rO-c0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GB-Va-rI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
