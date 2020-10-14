@@ -14,8 +14,8 @@ final class SleepViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet private weak var startTimeButton: UIButton!
-    @IBOutlet private weak var endTimeButton: UIButton!
+    @IBOutlet private weak var selectStartTimeButton: UIButton!
+    @IBOutlet private weak var selectEndTimeButton: UIButton!
     
     // MARK: Properties
     
@@ -31,12 +31,12 @@ final class SleepViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func tapStartTimeButton(_ sender: UIButton) {
-        presentTimePicker(for: startTimeButton)
+    @IBAction func selectStartTime(_ sender: UIButton) {
+        presentTimePicker(for: selectStartTimeButton)
     }
     
-    @IBAction func tapEndTimeButton(_ sender: UIButton) {
-        presentTimePicker(for: endTimeButton)
+    @IBAction func selectEndTime(_ sender: UIButton) {
+        presentTimePicker(for: selectEndTimeButton)
     }
     
     private func presentTimePicker(for button: UIButton) {
@@ -47,7 +47,7 @@ final class SleepViewController: UIViewController {
         timePickerViewController.view.addSubview(timePicker)
         timePickerViewController.view.backgroundColor = .white
         
-        let title = button == startTimeButton ? "Start Time" : "End Time"
+        let title = button == selectStartTimeButton ? "Start Time" : "End Time"
         timePicker.updateTitle(to: title)
         timePicker.translatesAutoresizingMaskIntoConstraints = false
         timePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true

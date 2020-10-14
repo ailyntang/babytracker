@@ -32,7 +32,7 @@
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapStartTimeButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="bqI-tg-jJ0"/>
+                                            <action selector="selectStartTime:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="bqI-tg-jJ0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,7 +85,7 @@
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapEndTimeButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="qR6-gG-X2l"/>
+                                            <action selector="selectEndTime:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="qR6-gG-X2l"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,8 +120,8 @@
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>
                     </view>
                     <connections>
-                        <outlet property="endTimeButton" destination="maI-Hf-MjD" id="q4R-57-QHr"/>
-                        <outlet property="startTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
+                        <outlet property="selectEndTimeButton" destination="maI-Hf-MjD" id="q4R-57-QHr"/>
+                        <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GB-Va-rI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
