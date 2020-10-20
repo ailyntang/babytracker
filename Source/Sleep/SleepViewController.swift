@@ -22,6 +22,11 @@ final class SleepViewController: UIViewController {
     
     private var timePicker: TimePicker = TimePicker()
     private var timer: Timer? = nil
+    private var seconds: Int = 0
+    private var minutes: Int = 0
+    private var hours: Int = 0
+    private var shouldUpdateMinutes: Bool = false
+    private var shouldUpdateHours: Bool = false
     
     // MARK: Lifecycle
     
@@ -48,13 +53,18 @@ final class SleepViewController: UIViewController {
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
-            // placeholder to update UI with seconds
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            self.updateDuration()
         })
         timer?.tolerance = 0.2
     }
+}
+
+// MARK: - Private methods
+
+private extension SleepViewController {
     
-    private func presentTimePicker(for button: UIButton) {
+    func presentTimePicker(for button: UIButton) {
         
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
@@ -73,6 +83,49 @@ final class SleepViewController: UIViewController {
         timePickerViewController.modalPresentationStyle = .custom
         timePickerViewController.transitioningDelegate = self
         self.present(timePickerViewController, animated: true, completion: nil)
+    }
+    
+    func updateDuration() {
+        updateSeconds()
+        updateMinutes()
+        updateHours()
+        print("********")
+        print(hours)
+        print(minutes)
+        print(seconds)
+        print("********")
+    }
+    
+    func updateTimeComponent(_ component: inout Int) {
+        switch component {
+        case 59: component = 0
+        default: component += 1
+        }
+    }
+    
+    func updateSeconds() {
+        
+        if seconds == 59 {
+            shouldUpdateMinutes = true
+            if minutes == 59 {
+                shouldUpdateHours = true
+            }
+        }
+        updateTimeComponent(&seconds)
+    }
+    
+    func updateMinutes() {
+        if shouldUpdateMinutes {
+            updateTimeComponent(&minutes)
+            shouldUpdateMinutes = false
+        }
+    }
+
+    func updateHours() {
+        if shouldUpdateHours {
+            updateTimeComponent(&hours)
+            shouldUpdateHours = false
+        }
     }
 }
 
