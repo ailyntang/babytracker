@@ -21,6 +21,7 @@ final class SleepViewController: UIViewController {
     // MARK: Properties
     
     private var timePicker: TimePicker = TimePicker()
+    private var timer: Timer? = nil
     
     // MARK: Lifecycle
     
@@ -28,6 +29,12 @@ final class SleepViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
         timePicker.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        timer = nil
     }
     
     // MARK: Actions
@@ -41,7 +48,10 @@ final class SleepViewController: UIViewController {
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
-        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+            // placeholder to update UI with seconds
+        })
+        timer?.tolerance = 0.2
     }
     
     private func presentTimePicker(for button: UIButton) {
