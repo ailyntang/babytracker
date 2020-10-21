@@ -17,7 +17,9 @@ final class SleepViewController: UIViewController {
     @IBOutlet private weak var selectStartTimeButton: UIButton!
     @IBOutlet private weak var selectEndTimeButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
-    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    @IBOutlet weak var secondsLabel: UILabel!
     
     // MARK: Properties
     
@@ -90,7 +92,7 @@ private extension SleepViewController {
         self.present(timePickerViewController, animated: true, completion: nil)
     }
     
-    // MARK: Timer and duration label
+    // MARK: Timer
     
     func stopTimer() {
         timer?.invalidate()
@@ -110,8 +112,11 @@ private extension SleepViewController {
         updateSeconds()
         updateMinutes()
         updateHours()
-        let duration = convertTimeComponentToString(hours) + " : " + convertTimeComponentToString(minutes) + " : " +   convertTimeComponentToString(seconds)
-        durationLabel.text = duration
+        hoursLabel.text = convertTimeComponentToString(hours)
+        minutesLabel.text = convertTimeComponentToString(minutes)
+        secondsLabel.text = convertTimeComponentToString(seconds)
+//        let duration = convertTimeComponentToString(hours) + " : " + convertTimeComponentToString(minutes) + " : " +   convertTimeComponentToString(seconds)
+//        durationLabel.text = duration
     }
     
     func convertTimeComponentToString(_ timeComponent: Int) -> String {
