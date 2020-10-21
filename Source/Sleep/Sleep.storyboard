@@ -123,6 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>
                     </view>
                     <connections>
+                        <outlet property="durationLabel" destination="1jq-pn-6aX" id="Zsk-r6-TNU"/>
                         <outlet property="selectEndTimeButton" destination="aFs-FF-lQ5" id="4zH-EX-UTk"/>
                         <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
                         <outlet property="startButton" destination="aFs-FF-lQ5" id="Xxz-rO-c0B"/>

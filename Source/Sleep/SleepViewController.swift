@@ -17,13 +17,14 @@ final class SleepViewController: UIViewController {
     @IBOutlet private weak var selectStartTimeButton: UIButton!
     @IBOutlet private weak var selectEndTimeButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var durationLabel: UILabel!
     
     // MARK: Properties
     
     private var timePicker: TimePicker = TimePicker()
     private var timer: Timer? = nil
-    private var seconds: Int = 0
-    private var minutes: Int = 0
+    private var seconds: Int = 56
+    private var minutes: Int = 59
     private var hours: Int = 0
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
@@ -89,11 +90,16 @@ private extension SleepViewController {
         updateSeconds()
         updateMinutes()
         updateHours()
-        print("********")
-        print(hours)
-        print(minutes)
-        print(seconds)
-        print("********")
+        let duration = convertTimeComponentToString(hours) + " : " + convertTimeComponentToString(minutes) + " : " +   convertTimeComponentToString(seconds)
+        durationLabel.text = duration
+    }
+    
+    func convertTimeComponentToString(_ timeComponent: Int) -> String {
+        if timeComponent < 10 {
+            return "0" + String(timeComponent)
+        } else {
+            return String(timeComponent)
+        }
     }
     
     func updateTimeComponent(_ component: inout Int) {
