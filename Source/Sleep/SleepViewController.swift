@@ -54,18 +54,20 @@ final class SleepViewController: UIViewController {
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
-        guard timer == nil else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            self.updateDuration()
-        })
-        timer?.tolerance = 0.2
+        if startButton.currentTitle == "START" {
+            startTimer()
+        } else {
+            stopTimer()
+        }
     }
 }
 
 // MARK: - Private methods
 
 private extension SleepViewController {
+    
+    // MARK: Time Picker
     
     func presentTimePicker(for button: UIButton) {
         
@@ -86,6 +88,22 @@ private extension SleepViewController {
         timePickerViewController.modalPresentationStyle = .custom
         timePickerViewController.transitioningDelegate = self
         self.present(timePickerViewController, animated: true, completion: nil)
+    }
+    
+    // MARK: Timer and duration label
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        startButton.setTitle("START", for: .normal)
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            self.updateDuration()
+        })
+        timer?.tolerance = 0.2
+        startButton.setTitle("STOP", for: .normal)
     }
     
     func updateDuration() {
