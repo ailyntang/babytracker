@@ -37,8 +37,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jq-pn-6aX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jq-pn-6aX">
                                 <rect key="frame" x="95.5" y="222" width="223" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="WvR-uP-UjG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,7 +112,6 @@
                         <constraints>
                             <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="T3o-oz-u0L" secondAttribute="trailing" constant="24" id="221-6S-ZLU"/>
                             <constraint firstItem="aFs-FF-lQ5" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="4vE-0v-tic"/>
-                            <constraint firstItem="1jq-pn-6aX" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="Abb-Mc-sR0"/>
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="O4u-9N-vj4"/>
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="top" secondItem="rTs-Du-act" secondAttribute="bottom" constant="24" id="SJ6-FE-ObN"/>
                             <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="rTs-Du-act" secondAttribute="trailing" constant="24" id="UiB-Vl-9ih"/>
@@ -118,6 +120,7 @@
                             <constraint firstItem="rTs-Du-act" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="Zu4-Gr-Woc"/>
                             <constraint firstItem="aFs-FF-lQ5" firstAttribute="top" secondItem="2NM-U3-QQm" secondAttribute="bottom" constant="80" id="f9n-NB-fKm"/>
                             <constraint firstItem="rTs-Du-act" firstAttribute="top" secondItem="dJV-RF-OeK" secondAttribute="top" constant="32" id="k5x-dr-esS"/>
+                            <constraint firstItem="1jq-pn-6aX" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="pfh-wv-Kq8"/>
                             <constraint firstItem="2NM-U3-QQm" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="scn-jT-22P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>

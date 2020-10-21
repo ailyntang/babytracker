@@ -54,6 +54,8 @@ final class SleepViewController: UIViewController {
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
+        guard timer == nil else { return }
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
             self.updateDuration()
         })
