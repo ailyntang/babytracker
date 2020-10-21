@@ -101,8 +101,8 @@ private extension SleepViewController {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            self.updateDuration()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+            self?.updateDuration()
         })
         timer?.tolerance = 0.2
         startButton.setTitle("STOP", for: .normal)
@@ -115,8 +115,6 @@ private extension SleepViewController {
         hoursLabel.text = convertTimeComponentToString(hours)
         minutesLabel.text = convertTimeComponentToString(minutes)
         secondsLabel.text = convertTimeComponentToString(seconds)
-//        let duration = convertTimeComponentToString(hours) + " : " + convertTimeComponentToString(minutes) + " : " +   convertTimeComponentToString(seconds)
-//        durationLabel.text = duration
     }
     
     func convertTimeComponentToString(_ timeComponent: Int) -> String {
