@@ -58,12 +58,13 @@
                                         <rect key="frame" x="84.5" y="0.0" width="281.5" height="32.5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="Today, 5.30pm">
+                                                <fragment content="Set time">
                                                     <attributes>
-                                                        <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <font key="NSFont" metaFont="system" size="17"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         <integer key="NSUnderline" value="1"/>
-                                                        <color key="NSUnderlineColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="NSUnderlineColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>

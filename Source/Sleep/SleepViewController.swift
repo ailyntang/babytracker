@@ -37,6 +37,7 @@ final class SleepViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
         timePicker.delegate = self
+        selectStartTimeButton.underline()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -196,5 +197,23 @@ final class HalfSizePresentationController: UIPresentationController {
                       y: containerView.bounds.height - Layout.timePickerHeight,
                       width: containerView.bounds.width,
                       height: Layout.timePickerHeight)
+    }
+}
+
+// MARK: - UIButton Extension
+
+private extension UIButton {
+    
+    func underline(style: NSUnderlineStyle = .single, color: UIColor = .blue, textColor: UIColor = .black) {
+        
+        let attributes: [NSAttributedString.Key : Any] =
+            [NSAttributedString.Key.underlineStyle: style.rawValue,
+             NSAttributedString.Key.underlineColor: color,
+             NSAttributedString.Key.foregroundColor: textColor]
+        
+        let titleText = self.currentTitle ?? self.titleLabel?.text ?? ""
+
+        let attributedString = NSAttributedString(string: titleText, attributes: attributes)
+        self.setAttributedTitle(attributedString, for: .normal)
     }
 }
