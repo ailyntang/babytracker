@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimePicker" customModule="babytracker" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="Zew-Nk-XMp" id="zUf-Mf-eCq"/>
+                <outlet property="saveButton" destination="tRY-gY-0l8" id="5fr-zk-RWT"/>
                 <outlet property="titleLabel" destination="i5u-vf-R1L" id="ktu-gY-jbP"/>
             </connections>
         </placeholder>
@@ -47,6 +48,9 @@
                             <state key="normal" title="Save">
                                 <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </state>
+                            <connections>
+                                <action selector="tapSaveButton:" destination="-1" eventType="touchUpInside" id="ika-ZY-YTV"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

@@ -23,6 +23,7 @@ final class TimePicker: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var saveButton: UIButton!
     
     // MARK: Properties
     
@@ -55,6 +56,10 @@ final class TimePicker: UIView {
     
     @IBAction func tapCancelButton(_ sender: UIButton) {
         delegate?.cancel()
+    }
+    
+    @IBAction func tapSaveButton(_ sender: UIButton) {
+        delegate?.save()
     }
     
     func updateTitle(to title: String) {
