@@ -133,15 +133,11 @@ private extension SleepViewController {
     func updateTime(for button: UIButton, time: Date? = nil) {
         
         func useRelativeDateFormatting() -> Bool {
-            
             guard let time = time else { return true }
             
-            let minimumDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
-            let maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-            
-            // try to get min date to be at midnight
-
-            return time < maximumDate && time > minimumDate
+            return Calendar.current.isDateInYesterday(time)
+                || Calendar.current.isDateInToday(time)
+                || Calendar.current.isDateInTomorrow(time)
         }
         
         let dateFormatter = DateFormatter()
