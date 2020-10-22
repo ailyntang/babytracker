@@ -125,6 +125,9 @@ private extension SleepViewController {
         })
         timer?.tolerance = 0.2
         startButton.setTitle("STOP", for: .normal)
+        
+        let attributedString = NSAttributedString(string: "")
+        selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
     }
     
     func updateTime(for button: UIButton) {
