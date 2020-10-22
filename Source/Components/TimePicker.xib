@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimePicker" customModule="babytracker" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="Zew-Nk-XMp" id="zUf-Mf-eCq"/>
+                <outlet property="datePicker" destination="jI4-fA-m1e" id="Hkd-0y-TaM"/>
                 <outlet property="saveButton" destination="tRY-gY-0l8" id="5fr-zk-RWT"/>
                 <outlet property="titleLabel" destination="i5u-vf-R1L" id="ktu-gY-jbP"/>
             </connections>

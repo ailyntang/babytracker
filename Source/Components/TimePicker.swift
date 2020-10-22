@@ -22,6 +22,7 @@ final class TimePicker: UIView {
     // MARK: Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var saveButton: UIButton!
     

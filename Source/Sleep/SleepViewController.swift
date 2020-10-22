@@ -97,7 +97,7 @@ private extension SleepViewController {
         timePickerViewController.view.addSubview(timePicker)
         timePickerViewController.view.backgroundColor = .white
         
-        let title = button == selectStartTimeButton ? "Start Time" : "End Time"
+        let title = button == selectStartTimeButton ? Text.startTime : Text.endTime
         timePicker.updateTitle(to: title)
         timePicker.translatesAutoresizingMaskIntoConstraints = false
         timePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
@@ -130,11 +130,32 @@ private extension SleepViewController {
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
     }
     
-    func updateTime(for button: UIButton) {
+    func updateTime(for button: UIButton, time: Date? = nil) {
+        
+        func useRelativeDateFormatting() -> Bool {
+            
+            guard let time = time else { return true }
+            
+            let minimumDate = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+            let maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+            
+            // try to get min date to be at midnight
+
+            return time < maximumDate && time > minimumDate
+        }
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm a"
-        let timeStamp = dateFormatter.string(from: Date())
-        let attributedString = NSAttributedString(string: "Today, " + timeStamp,
+        
+        if useRelativeDateFormatting() {
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            dateFormatter.doesRelativeDateFormatting = true
+        } else {
+            dateFormatter.dateFormat = "EEEE, h:mm a"
+        }
+        
+        let timeStamp = dateFormatter.string(from: time ?? Date())
+        let attributedString = NSAttributedString(string: timeStamp,
                                                   attributes: buttonTitleAttributes)
         
         UIView.performWithoutAnimation {
@@ -203,7 +224,15 @@ extension SleepViewController: TimePickerDelegate {
     }
     
     func save() {
-        // Placeholder
+        let time = timePicker.datePicker.date
+        
+        if timePicker.titleLabel.text == Text.startTime {
+            updateTime(for: selectStartTimeButton, time: time)
+        } else {
+            updateTime(for: selectEndTimeButton, time: time)
+        }
+        
+        cancel()
     }
 }
 
@@ -238,4 +267,6 @@ final class HalfSizePresentationController: UIPresentationController {
 
 private enum Text {
     static let setTime = "Set time"
+    static let startTime = "Start Time"
+    static let endTime = "End Time"
 }
