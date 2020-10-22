@@ -133,7 +133,11 @@ private extension SleepViewController {
         let timeStamp = dateFormatter.string(from: Date())
         let attributedString = NSAttributedString(string: "Today, " + timeStamp,
                                                   attributes: buttonTitleAttributes)
-        button.setAttributedTitle(attributedString, for: .normal)
+        
+        UIView.performWithoutAnimation {
+            button.setAttributedTitle(attributedString, for: .normal)
+            button.layoutIfNeeded()
+        }
     }
     
     func updateDuration() {
