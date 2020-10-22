@@ -31,13 +31,17 @@ final class SleepViewController: UIViewController {
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
     
+    private let buttonTitleAttributes: [NSAttributedString.Key : Any] =
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.underlineColor: UIColor.black,
+         NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
         timePicker.delegate = self
-        selectStartTimeButton.underline()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,6 +62,10 @@ final class SleepViewController: UIViewController {
     
     @IBAction func tapStartButton(_ sender: Any) {
         
+        if selectStartTimeButton.titleLabel?.text == Text.setTime {
+            updateTime(for: selectStartTimeButton)
+        }
+        
         if startButton.currentTitle == "START" {
             startTimer()
         } else {
@@ -69,6 +77,15 @@ final class SleepViewController: UIViewController {
 // MARK: - Private methods
 
 private extension SleepViewController {
+    
+    // MARK: UI
+    
+    func setupUI() {
+        
+        let attributedString = NSAttributedString(string: Text.setTime, attributes: buttonTitleAttributes)
+        selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
+        selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
+    }
     
     // MARK: Time Picker
     
@@ -99,6 +116,7 @@ private extension SleepViewController {
         timer?.invalidate()
         timer = nil
         startButton.setTitle("START", for: .normal)
+        updateTime(for: selectEndTimeButton)
     }
     
     func startTimer() {
@@ -107,6 +125,15 @@ private extension SleepViewController {
         })
         timer?.tolerance = 0.2
         startButton.setTitle("STOP", for: .normal)
+    }
+    
+    func updateTime(for button: UIButton) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        let timeStamp = dateFormatter.string(from: Date())
+        let attributedString = NSAttributedString(string: "Today, " + timeStamp,
+                                                  attributes: buttonTitleAttributes)
+        button.setAttributedTitle(attributedString, for: .normal)
     }
     
     func updateDuration() {
@@ -200,20 +227,8 @@ final class HalfSizePresentationController: UIPresentationController {
     }
 }
 
-// MARK: - UIButton Extension
+// MARK: - Constants
 
-private extension UIButton {
-    
-    func underline(style: NSUnderlineStyle = .single, color: UIColor = .blue, textColor: UIColor = .black) {
-        
-        let attributes: [NSAttributedString.Key : Any] =
-            [NSAttributedString.Key.underlineStyle: style.rawValue,
-             NSAttributedString.Key.underlineColor: color,
-             NSAttributedString.Key.foregroundColor: textColor]
-        
-        let titleText = self.currentTitle ?? self.titleLabel?.text ?? ""
-
-        let attributedString = NSAttributedString(string: titleText, attributes: attributes)
-        self.setAttributedTitle(attributedString, for: .normal)
-    }
+private enum Text {
+    static let setTime = "Set time"
 }

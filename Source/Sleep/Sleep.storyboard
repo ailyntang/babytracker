@@ -192,7 +192,7 @@
                         <outlet property="hoursLabel" destination="aPl-1G-vuU" id="tEK-Qn-Dum"/>
                         <outlet property="minutesLabel" destination="uI3-s8-TBt" id="kTD-0v-QZp"/>
                         <outlet property="secondsLabel" destination="4W3-Ch-UBL" id="Ak0-Af-UUR"/>
-                        <outlet property="selectEndTimeButton" destination="aFs-FF-lQ5" id="4zH-EX-UTk"/>
+                        <outlet property="selectEndTimeButton" destination="maI-Hf-MjD" id="lcS-BF-zkb"/>
                         <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
                         <outlet property="startButton" destination="aFs-FF-lQ5" id="Xxz-rO-c0B"/>
                     </connections>
