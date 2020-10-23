@@ -158,15 +158,28 @@ private extension SleepViewController {
             button.setAttributedTitle(attributedString, for: .normal)
             button.layoutIfNeeded()
         }
+        
+        if let startTime = selectStartTimeButton.titleLabel?.text,
+            startTime != Text.setTime,
+            let endTime = selectEndTimeButton.titleLabel?.text,
+            endTime != Text.setTime,
+            endTime != "" {
+            updateDuration(useTimer: false)
+        }
     }
     
-    func updateDuration() {
-        updateSeconds()
-        updateMinutes()
-        updateHours()
-        hoursLabel.text = convertTimeComponentToString(hours)
-        minutesLabel.text = convertTimeComponentToString(minutes)
-        secondsLabel.text = convertTimeComponentToString(seconds)
+    func updateDuration(useTimer: Bool = true) {
+        
+        if useTimer {
+            updateSeconds()
+            updateMinutes()
+            updateHours()
+            hoursLabel.text = convertTimeComponentToString(hours)
+            minutesLabel.text = convertTimeComponentToString(minutes)
+            secondsLabel.text = convertTimeComponentToString(seconds)
+        } else {
+            // placeholder to use set start and end times
+        }
     }
     
     func convertTimeComponentToString(_ timeComponent: Int) -> String {
