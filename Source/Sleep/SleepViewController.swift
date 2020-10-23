@@ -25,8 +25,8 @@ final class SleepViewController: UIViewController {
     
     private var timePicker: TimePicker = TimePicker()
     private var timer: Timer? = nil
-    private var seconds: Int = 56
-    private var minutes: Int = 59
+    private var seconds: Int = 0
+    private var minutes: Int = 0
     private var hours: Int = 0
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
@@ -63,7 +63,7 @@ final class SleepViewController: UIViewController {
     @IBAction func tapStartButton(_ sender: Any) {
         
         if selectStartTimeButton.titleLabel?.text == Text.setTime {
-            updateTime(for: selectStartTimeButton)
+            setTime(for: selectStartTimeButton)
         }
         
         if startButton.currentTitle == "START" {
@@ -116,7 +116,7 @@ private extension SleepViewController {
         timer?.invalidate()
         timer = nil
         startButton.setTitle("START", for: .normal)
-        updateTime(for: selectEndTimeButton)
+        setTime(for: selectEndTimeButton)
     }
     
     func startTimer() {
@@ -130,7 +130,7 @@ private extension SleepViewController {
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
     }
     
-    func updateTime(for button: UIButton, time: Date? = nil) {
+    func setTime(for button: UIButton, to time: Date? = nil) {
         
         func useRelativeDateFormatting() -> Bool {
             guard let time = time else { return true }
@@ -223,9 +223,9 @@ extension SleepViewController: TimePickerDelegate {
         let time = timePicker.datePicker.date
         
         if timePicker.titleLabel.text == Text.startTime {
-            updateTime(for: selectStartTimeButton, time: time)
+            setTime(for: selectStartTimeButton, to: time)
         } else {
-            updateTime(for: selectEndTimeButton, time: time)
+            setTime(for: selectEndTimeButton, to: time)
         }
         
         cancel()
