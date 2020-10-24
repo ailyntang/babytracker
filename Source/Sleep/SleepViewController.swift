@@ -23,6 +23,8 @@ final class SleepViewController: UIViewController {
     
     // MARK: Properties
     
+    private let viewModel = SleepViewModel()
+    
     private var timePicker: TimePicker = TimePicker()
     private var timer: Timer? = nil
     private var seconds: Int = 0
@@ -32,11 +34,6 @@ final class SleepViewController: UIViewController {
     private var shouldUpdateHours: Bool = false
     private var startTime: Date? = nil
     private var endTime: Date? = nil
-    
-    private let buttonTitleAttributes: [NSAttributedString.Key : Any] =
-        [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.underlineColor: UIColor.black,
-         NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
     
     // MARK: Lifecycle
     
@@ -84,7 +81,7 @@ private extension SleepViewController {
     
     func setupUI() {
         
-        let attributedString = NSAttributedString(string: Text.setTime, attributes: buttonTitleAttributes)
+        let attributedString = NSAttributedString(string: Text.setTime, attributes: viewModel.buttonTitleAttributes)
         selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
     }
@@ -168,7 +165,7 @@ private extension SleepViewController {
         
         let timeStamp = dateFormatter.string(from: selectedTime)
         let attributedString = NSAttributedString(string: timeStamp,
-                                                  attributes: buttonTitleAttributes)
+                                                  attributes: viewModel.buttonTitleAttributes)
         
         UIView.performWithoutAnimation {
             button.setAttributedTitle(attributedString, for: .normal)
