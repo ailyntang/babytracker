@@ -30,6 +30,8 @@ final class SleepViewController: UIViewController {
     private var hours: Int = 0
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
+    private var startTime: Date? = nil
+    private var endTime: Date? = nil
     
     private let buttonTitleAttributes: [NSAttributedString.Key : Any] =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -132,6 +134,8 @@ private extension SleepViewController {
     
     func setTime(for button: UIButton, to time: Date? = nil) {
         
+        // Date formatting
+        
         func useRelativeDateFormatting() -> Bool {
             guard let time = time else { return true }
             
@@ -150,7 +154,19 @@ private extension SleepViewController {
             dateFormatter.dateFormat = "EEEE, h:mm a"
         }
         
-        let timeStamp = dateFormatter.string(from: time ?? Date())
+        // Save time stamp
+        
+        let selectedTime: Date = time ?? Date()
+        
+        if button == selectStartTimeButton {
+            startTime = selectedTime
+        } else {
+            endTime = selectedTime
+        }
+        
+        // Update button title
+        
+        let timeStamp = dateFormatter.string(from: selectedTime)
         let attributedString = NSAttributedString(string: timeStamp,
                                                   attributes: buttonTitleAttributes)
         
@@ -158,6 +174,8 @@ private extension SleepViewController {
             button.setAttributedTitle(attributedString, for: .normal)
             button.layoutIfNeeded()
         }
+        
+        // Update duration label
         
         if let startTime = selectStartTimeButton.titleLabel?.text,
             startTime != Text.setTime,
@@ -174,12 +192,26 @@ private extension SleepViewController {
             updateSeconds()
             updateMinutes()
             updateHours()
-            hoursLabel.text = convertTimeComponentToString(hours)
-            minutesLabel.text = convertTimeComponentToString(minutes)
-            secondsLabel.text = convertTimeComponentToString(seconds)
+            
+        } else if let startTime = startTime,
+            let endTime = endTime {
+            let durationInSeconds: Int = Int(DateInterval(start: startTime, end: endTime).duration)
+            
+            seconds = durationInSeconds % 60
+
+            let totalMinutes = durationInSeconds / 60
+            minutes = totalMinutes % 60
+            
+            let totalHours = totalMinutes / 60
+            hours = totalHours % 60
+            
         } else {
-            // placeholder to use set start and end times
+            fatalError("Programmer error: unexpectedly nil for start or end time")
         }
+        
+        hoursLabel.text = convertTimeComponentToString(hours)
+        minutesLabel.text = convertTimeComponentToString(minutes)
+        secondsLabel.text = convertTimeComponentToString(seconds)
     }
     
     func convertTimeComponentToString(_ timeComponent: Int) -> String {
