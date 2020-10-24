@@ -22,6 +22,7 @@
 		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
 		933B15E72520571200A3210E /* TimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* TimePicker.xib */; };
 		933B15ED252078BA00A3210E /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* TimePicker.swift */; };
+		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		933B15E62520571200A3210E /* TimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePicker.xib; sourceTree = "<group>"; };
 		933B15EC252078BA00A3210E /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				933B15E325159DB200A3210E /* Sleep.storyboard */,
 				933B15E1251598E100A3210E /* SleepViewController.swift */,
+				93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */,
 			);
 			path = Sleep;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
+				93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
 				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
 				933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */,
