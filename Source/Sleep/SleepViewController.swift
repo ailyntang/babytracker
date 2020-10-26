@@ -228,13 +228,6 @@ private extension SleepViewController {
         }
     }
     
-    func updateTimeComponent(_ component: inout Int) {
-        switch component {
-        case 59: component = 0
-        default: component += 1
-        }
-    }
-    
     func updateSeconds() {
         
         if seconds == 59 {
@@ -243,19 +236,19 @@ private extension SleepViewController {
                 shouldUpdateHours = true
             }
         }
-        updateTimeComponent(&seconds)
+        viewModel.updateTimeComponent(&seconds)
     }
     
     func updateMinutes() {
         if shouldUpdateMinutes {
-            updateTimeComponent(&minutes)
+            viewModel.updateTimeComponent(&minutes)
             shouldUpdateMinutes = false
         }
     }
 
     func updateHours() {
         if shouldUpdateHours {
-            updateTimeComponent(&hours)
+            viewModel.updateTimeComponent(&hours)
             shouldUpdateHours = false
         }
     }
