@@ -33,8 +33,10 @@ extension HomeViewController: UITableViewDelegate {
         
         let storyboardID = viewModel.cellViewModels[indexPath.row].storyboardID
         let storyboard = UIStoryboard(name: storyboardID, bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: storyboardID)
-        show(secondVC, sender: self)
+        let viewController = storyboard.instantiateViewController(identifier: storyboardID) { coder in
+            return SleepViewController(coder: coder, viewModel: SleepViewModel())
+        }
+        show(viewController, sender: self)
     }
 }
 

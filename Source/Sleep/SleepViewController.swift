@@ -23,7 +23,7 @@ final class SleepViewController: UIViewController {
     
     // MARK: Properties
     
-    private let viewModel = SleepViewModel()
+    private let viewModel: SleepViewModel
     
     private var timePicker: TimePicker = TimePicker()
     private var timer: Timer? = nil
@@ -36,6 +36,15 @@ final class SleepViewController: UIViewController {
     private var endTime: Date? = nil
     
     // MARK: Lifecycle
+    
+    init?(coder: NSCoder, viewModel: SleepViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Programmer error: SleepViewController initialised without a view model")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
