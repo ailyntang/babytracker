@@ -201,6 +201,9 @@ private extension SleepViewController {
             
         } else if let startTime = startTime,
             let endTime = endTime {
+            
+            // This should never occur as the user is not allowed to enter an end time before the start time
+            guard startTime < endTime else { return }
             let durationInSeconds: Int = Int(DateInterval(start: startTime, end: endTime).duration)
             
             seconds = durationInSeconds % 60
@@ -265,7 +268,7 @@ extension SleepViewController: TimePickerDelegate {
     
     func save() {
         
-        // TODO: don't let user save if the start date is after end date, or if end date is more than 99 hours
+        // TODO: don't let user save if the start date is after end date, or if duration is more than 99 hours
         let time = timePicker.datePicker.date
         
         if timePicker.titleLabel.text == Text.startTime {
