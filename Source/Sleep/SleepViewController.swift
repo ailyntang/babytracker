@@ -218,17 +218,9 @@ private extension SleepViewController {
             fatalError("Programmer error: unexpectedly nil for start or end time")
         }
         
-        hoursLabel.text = convertTimeComponentToString(hours)
-        minutesLabel.text = convertTimeComponentToString(minutes)
-        secondsLabel.text = convertTimeComponentToString(seconds)
-    }
-    
-    func convertTimeComponentToString(_ timeComponent: Int) -> String {
-        if timeComponent < 10 {
-            return "0" + String(timeComponent)
-        } else {
-            return String(timeComponent)
-        }
+        hoursLabel.text = viewModel.convertTimeComponentToString(hours)
+        minutesLabel.text = viewModel.convertTimeComponentToString(minutes)
+        secondsLabel.text = viewModel.convertTimeComponentToString(seconds)
     }
     
     func updateSeconds() {

@@ -21,4 +21,12 @@ struct SleepViewModel {
         default: component += 1
         }
     }
+    
+    func convertTimeComponentToString(_ timeComponent: Int) -> String {
+        if timeComponent < 10 {
+            return "0" + String(timeComponent)
+        } else {
+            return String(timeComponent)
+        }
+    }
 }
