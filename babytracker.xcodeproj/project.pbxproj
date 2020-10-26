@@ -20,9 +20,10 @@
 		933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15DE250B6BCD00A3210E /* HomeViewModel.swift */; };
 		933B15E2251598E100A3210E /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15E1251598E100A3210E /* SleepViewController.swift */; };
 		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
-		933B15E72520571200A3210E /* TimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* TimePicker.xib */; };
-		933B15ED252078BA00A3210E /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* TimePicker.swift */; };
+		933B15E72520571200A3210E /* DateTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* DateTimePicker.xib */; };
+		933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* DateTimePicker.swift */; };
 		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
+		93A4AFFD25466825007DDB29 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +63,10 @@
 		933B15DE250B6BCD00A3210E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		933B15E1251598E100A3210E /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
-		933B15E62520571200A3210E /* TimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePicker.xib; sourceTree = "<group>"; };
-		933B15EC252078BA00A3210E /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		933B15E62520571200A3210E /* DateTimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTimePicker.xib; sourceTree = "<group>"; };
+		933B15EC252078BA00A3210E /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
+		93A4AFFC25466825007DDB29 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				933B15C7250B518B00A3210E /* Home */,
 				933B15E02515982400A3210E /* Sleep */,
+				93A4AFFB25466817007DDB29 /* Models */,
 				933B15E5252056D900A3210E /* Components */,
 				933B15CA250B518B00A3210E /* Assets.xcassets */,
 				933B15CB250B518B00A3210E /* Supporting Files */,
@@ -186,10 +189,18 @@
 		933B15E5252056D900A3210E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				933B15E62520571200A3210E /* TimePicker.xib */,
-				933B15EC252078BA00A3210E /* TimePicker.swift */,
+				933B15E62520571200A3210E /* DateTimePicker.xib */,
+				933B15EC252078BA00A3210E /* DateTimePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		93A4AFFB25466817007DDB29 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93A4AFFC25466825007DDB29 /* Timer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933B15E72520571200A3210E /* TimePicker.xib in Resources */,
+				933B15E72520571200A3210E /* DateTimePicker.xib in Resources */,
 				933B15D4250B518C00A3210E /* LaunchScreen.storyboard in Resources */,
 				933B15D1250B518C00A3210E /* Home.storyboard in Resources */,
 				933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */,
@@ -326,12 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933B15ED252078BA00A3210E /* TimePicker.swift in Sources */,
+				933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */,
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
+				93A4AFFD25466825007DDB29 /* Timer.swift in Sources */,
 				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
 				933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */,
 			);

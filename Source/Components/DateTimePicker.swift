@@ -1,5 +1,5 @@
 //
-//  TimePicker.swift
+//  DateTimePicker.swift
 //  babytracker
 //
 //  Created by Ai-Lyn Tang on 27/9/20.
@@ -10,25 +10,25 @@ import UIKit
 
 // MARK: - TimePickerDelegate
 
-protocol TimePickerDelegate: AnyObject {
+protocol DateTimePickerDelegate: AnyObject {
     func cancel()
     func save()
 }
 
 // MARK: - TimePicker
 
-final class TimePicker: UIView {
+final class DateTimePicker: UIView {
     
     // MARK: Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateTimePicker: UIDatePicker!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var saveButton: UIButton!
     
     // MARK: Properties
     
-    weak var delegate: TimePickerDelegate?
+    weak var delegate: DateTimePickerDelegate?
     
     // MARK: Initialisation
     
@@ -44,8 +44,8 @@ final class TimePicker: UIView {
 
     private func commonInit() {
 
-        let bundle = Bundle.init(for: TimePicker.self)
-        if let viewsToAdd = bundle.loadNibNamed("TimePicker", owner: self, options: nil),
+        let bundle = Bundle.init(for: DateTimePicker.self)
+        if let viewsToAdd = bundle.loadNibNamed(String(describing: Self.self), owner: self, options: nil),
             let contentView = viewsToAdd.first as? UIView {
             addSubview(contentView)
             contentView.frame = self.bounds

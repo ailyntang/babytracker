@@ -25,7 +25,7 @@ final class SleepViewController: UIViewController {
     
     private let viewModel: SleepViewModel
     
-    private var timePicker: TimePicker = TimePicker()
+    private var timePicker: DateTimePicker = DateTimePicker()
     private var timer: Timer? = nil
     private var seconds: Int = 0
     private var minutes: Int = 0
@@ -251,7 +251,7 @@ private extension SleepViewController {
 
 // MARK: - Conformance to TimePickerDelegate
 
-extension SleepViewController: TimePickerDelegate {
+extension SleepViewController: DateTimePickerDelegate {
     
     func cancel() {
         view.backgroundColor = UIColor.white.withAlphaComponent(1)
@@ -261,7 +261,7 @@ extension SleepViewController: TimePickerDelegate {
     func save() {
         
         // TODO: don't let user save if the start date is after end date, or if duration is more than 99 hours
-        let time = timePicker.datePicker.date
+        let time = timePicker.dateTimePicker.date
         
         if timePicker.titleLabel.text == Text.startTime {
             setTime(for: selectStartTimeButton, to: time)
