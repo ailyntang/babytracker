@@ -129,33 +129,14 @@ private extension SleepViewController {
     
     // MARK: Timer
     
+    // move this to date time selector
     func setTime(for button: UIButton, to time: Date? = nil) {
-        
-        // Date formatting
-        
-        func useRelativeDateFormatting() -> Bool {
-            guard let time = time else { return true }
-            
-            return Calendar.current.isDateInYesterday(time)
-                || Calendar.current.isDateInToday(time)
-                || Calendar.current.isDateInTomorrow(time)
-        }
-        
-        let dateFormatter = DateFormatter()
-        
-        if useRelativeDateFormatting() {
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            dateFormatter.doesRelativeDateFormatting = true
-        } else {
-            dateFormatter.dateFormat = "EEEE, h:mm a"
-        }
         
         // Save time stamp
         
         let selectedTime: Date = time ?? Date()
         
-        if button == selectStartTimeButton {
+        if dateTimePicker.isStartTime {
             startDate = selectedTime
         } else {
             endDate = selectedTime
@@ -163,7 +144,7 @@ private extension SleepViewController {
         
         // Update button title
         
-        let timeStamp = dateFormatter.string(from: selectedTime)
+        let timeStamp = makeFormattedDateString(from: selectedTime)
         let attributedString = NSAttributedString(string: timeStamp,
                                                   attributes: viewModel.buttonTitleAttributes)
         

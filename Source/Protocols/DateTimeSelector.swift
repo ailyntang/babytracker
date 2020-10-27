@@ -44,6 +44,29 @@ extension DateTimeSelector {
         timePickerViewController.transitioningDelegate = viewController as? UIViewControllerTransitioningDelegate
         viewController.present(timePickerViewController, animated: true, completion: nil)
     }
+    
+    func makeFormattedDateString(from date: Date? = nil) -> String {
+        
+        func useRelativeDateFormatting() -> Bool {
+            guard let date = date else { return true }
+            
+            return Calendar.current.isDateInYesterday(date)
+                || Calendar.current.isDateInToday(date)
+                || Calendar.current.isDateInTomorrow(date)
+        }
+        
+        let dateFormatter = DateFormatter()
+        
+        if useRelativeDateFormatting() {
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            dateFormatter.doesRelativeDateFormatting = true
+        } else {
+            dateFormatter.dateFormat = "EEEE, h:mm a"
+        }
+        
+        return dateFormatter.string(from: date ?? Date())
+    }
 }
 
 // MARK: - Constants
