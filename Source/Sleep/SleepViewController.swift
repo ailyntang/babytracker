@@ -129,13 +129,11 @@ private extension SleepViewController {
     
     // MARK: Timer
     
-    // move this to date time selector
     func setTime(for button: UIButton, to time: Date? = nil) {
         
         // Save time stamp
         
         let selectedTime: Date = time ?? Date()
-        
         if dateTimePicker.isStartTime {
             startDate = selectedTime
         } else {
@@ -155,13 +153,7 @@ private extension SleepViewController {
         
         // Update duration label
         
-        
-        if let startTime = selectStartTimeButton.titleLabel?.text,
-            startTime != Text.setTime,
-            let endTime = selectEndTimeButton.titleLabel?.text,
-            endTime != Text.setTime,
-            endTime != "",
-            endDate != nil {
+        if startDate != nil, endDate != nil {
             updateDuration(useTimer: false)
         }
     }
