@@ -167,7 +167,7 @@ private extension SleepViewController {
     func updateDuration(useTimer: Bool = true) {
         
         if useTimer {
-            updateTimeComponents()
+            updateTimeComponents(startDate: startDate, endDate: nil)
         } else {
             updateTimeComponents(startDate: startDate, endDate: endDate)
         }

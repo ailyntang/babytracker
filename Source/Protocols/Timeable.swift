@@ -38,15 +38,18 @@ extension Timeable {
             updateMinutes()
             updateHours()
             
-        case (.some, .some):
+        case (.none, .some): return
             
+        case (.some, .some):
             guard let startDate = startDate,
                 let endDate = endDate,
                 startDate < endDate else {
                     fatalError("Programmer error: unexpected inputs for start or end time")
             }
+            fallthrough
             
-            let durationInSeconds: Int = Int(DateInterval(start: startDate, end: endDate).duration)
+        default:
+            let durationInSeconds: Int = Int(DateInterval(start: startDate ?? Date(), end: endDate ?? Date()).duration)
             seconds = durationInSeconds % 60
             
             let totalMinutes = durationInSeconds / 60
@@ -54,8 +57,6 @@ extension Timeable {
             
             let totalHours = totalMinutes / 60
             hours = totalHours % 60
-            
-        default: return
         }
     }
 }
