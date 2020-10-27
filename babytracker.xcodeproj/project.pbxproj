@@ -23,7 +23,7 @@
 		933B15E72520571200A3210E /* DateTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* DateTimePicker.xib */; };
 		933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* DateTimePicker.swift */; };
 		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
-		93A4AFFD25466825007DDB29 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* Timer.swift */; };
+		93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		933B15E62520571200A3210E /* DateTimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTimePicker.xib; sourceTree = "<group>"; };
 		933B15EC252078BA00A3210E /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
-		93A4AFFC25466825007DDB29 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeSelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 			children = (
 				933B15C7250B518B00A3210E /* Home */,
 				933B15E02515982400A3210E /* Sleep */,
-				93A4AFFB25466817007DDB29 /* Models */,
+				93A4AFFB25466817007DDB29 /* Protocols */,
 				933B15E5252056D900A3210E /* Components */,
 				933B15CA250B518B00A3210E /* Assets.xcassets */,
 				933B15CB250B518B00A3210E /* Supporting Files */,
@@ -195,12 +195,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		93A4AFFB25466817007DDB29 /* Models */ = {
+		93A4AFFB25466817007DDB29 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				93A4AFFC25466825007DDB29 /* Timer.swift */,
+				93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */,
 			);
-			path = Models;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +343,7 @@
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
-				93A4AFFD25466825007DDB29 /* Timer.swift in Sources */,
+				93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */,
 				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
 				933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */,
 			);

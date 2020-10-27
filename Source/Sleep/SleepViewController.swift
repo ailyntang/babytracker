@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - SleepViewController
 
-final class SleepViewController: UIViewController {
+final class SleepViewController: UIViewController, StartDateTimeSelector, EndDateTimeSelector {
     
     // MARK: Outlets
     
@@ -25,15 +25,15 @@ final class SleepViewController: UIViewController {
     
     private let viewModel: SleepViewModel
     
-    private var dateTimePicker: DateTimePicker = DateTimePicker()
+    private(set) var dateTimePicker: DateTimePicker = DateTimePicker()
     private var timer: Timer? = nil
     private var seconds: Int = 0
     private var minutes: Int = 0
     private var hours: Int = 0
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
-    private var startTime: Date? = nil
-    private var endTime: Date? = nil
+    private(set) var startDate: Date? = nil
+    private(set) var endDate: Date? = nil
     
     // MARK: Lifecycle
     
@@ -61,11 +61,11 @@ final class SleepViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func selectStartTime(_ sender: UIButton) {
-        presentTimePicker(for: selectStartTimeButton)
+        presentPicker(for: selectEndTimeButton, isStartTime: true, view: view, viewController: self)
     }
     
     @IBAction func selectEndTime(_ sender: UIButton) {
-        presentTimePicker(for: selectEndTimeButton)
+        presentPicker(for: selectEndTimeButton, isStartTime: false, view: view, viewController: self)
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
@@ -93,29 +93,6 @@ private extension SleepViewController {
         let attributedString = NSAttributedString(string: Text.setTime, attributes: viewModel.buttonTitleAttributes)
         selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
-    }
-    
-    // MARK: Time Picker
-    
-    func presentTimePicker(for button: UIButton) {
-        
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        
-        let timePickerViewController = UIViewController()
-        timePickerViewController.view.addSubview(dateTimePicker)
-        timePickerViewController.view.backgroundColor = .white
-        
-        let title = button == selectStartTimeButton ? Text.startTime : Text.endTime
-        dateTimePicker.updateTitle(to: title)
-        dateTimePicker.translatesAutoresizingMaskIntoConstraints = false
-        dateTimePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
-        dateTimePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
-        dateTimePicker.trailingAnchor.constraint(equalTo: timePickerViewController.view.trailingAnchor).isActive = true
-        dateTimePicker.heightAnchor.constraint(equalTo: timePickerViewController.view.heightAnchor).isActive = true
-        
-        timePickerViewController.modalPresentationStyle = .custom
-        timePickerViewController.transitioningDelegate = self
-        self.present(timePickerViewController, animated: true, completion: nil)
     }
     
     // MARK: Timer
@@ -165,9 +142,9 @@ private extension SleepViewController {
         let selectedTime: Date = time ?? Date()
         
         if button == selectStartTimeButton {
-            startTime = selectedTime
+            startDate = selectedTime
         } else {
-            endTime = selectedTime
+            endDate = selectedTime
         }
         
         // Update button title
@@ -199,8 +176,8 @@ private extension SleepViewController {
             updateMinutes()
             updateHours()
             
-        } else if let startTime = startTime,
-            let endTime = endTime {
+        } else if let startTime = startDate,
+            let endTime = endDate {
             
             // This should never occur as the user is not allowed to enter an end time before the start time
             guard startTime < endTime else { return }
