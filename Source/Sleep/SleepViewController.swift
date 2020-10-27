@@ -129,20 +129,35 @@ private extension SleepViewController {
     
     // MARK: Timer
     
-    func setTime(for button: UIButton, to time: Date? = nil) {
+    func isValidDate() -> Bool {
         
-        // Save time stamp
+        if let startDate = startDate,
+            let endDate = endDate,
+            startDate > endDate {
+            return false
+        }
         
+        if let startDate = startDate,
+            let endDate = endDate {
+            let timeInterval = Int(DateInterval(start: startDate, end: endDate).duration)
+            let maximumTimeInterval: Int = 24 * 60 * 60 // 24 hours
+            return timeInterval < maximumTimeInterval
+        }
+        
+        return true
+    }
+    
+    func saveTimeStamp(for button: UIButton, to time: Date? = nil) {
         let selectedTime: Date = time ?? Date()
-        if dateTimePicker.isStartTime {
+        if button == selectStartTimeButton {
             startDate = selectedTime
         } else {
             endDate = selectedTime
         }
-        
-        // Update button title
-        
-        let timeStamp = makeFormattedDateString(from: selectedTime)
+    }
+    
+    func updateButtonTitleTo(_ time: Date, for button: UIButton) {
+        let timeStamp = makeFormattedDateString(from: time)
         let attributedString = NSAttributedString(string: timeStamp,
                                                   attributes: viewModel.buttonTitleAttributes)
         
@@ -150,8 +165,13 @@ private extension SleepViewController {
             button.setAttributedTitle(attributedString, for: .normal)
             button.layoutIfNeeded()
         }
+    }
+    
+    func setTime(for button: UIButton, to time: Date? = nil) {
         
-        // Update duration label
+        saveTimeStamp(for: button, to: time)
+        
+        updateButtonTitleTo(time ?? Date(), for: button)
         
         if startDate != nil, endDate != nil {
             updateDuration(useTimer: false)
@@ -182,16 +202,17 @@ extension SleepViewController: DateTimePickerDelegate {
     }
     
     func save() {
+        let date = dateTimePicker.dateTimePicker.date
+        var button: UIButton = dateTimePicker.isStartTime ? selectStartTimeButton : selectEndTimeButton
         
-        // TODO: don't let user save if the start date is after end date, or if duration is more than 99 hours
-        let time = dateTimePicker.dateTimePicker.date
+        saveTimeStamp(for: button, to: date)
         
-        if dateTimePicker.isStartTime {
-            setTime(for: selectStartTimeButton, to: time)
-        } else {
-            setTime(for: selectEndTimeButton, to: time)
+        guard isValidDate() else { return }
+        updateButtonTitleTo(date, for: button)
+
+        if startDate != nil, endDate != nil {
+            updateDuration(useTimer: false)
         }
-        
         cancel()
     }
 }
