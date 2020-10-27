@@ -26,14 +26,15 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     private let viewModel: SleepViewModel
     
     private(set) var dateTimePicker: DateTimePicker = DateTimePicker()
+    private(set) var startDate: Date? = nil
+    private(set) var endDate: Date? = nil
+    
     private var timer: Timer? = nil
     private var seconds: Int = 0
     private var minutes: Int = 0
     private var hours: Int = 0
     private var shouldUpdateMinutes: Bool = false
     private var shouldUpdateHours: Bool = false
-    private(set) var startDate: Date? = nil
-    private(set) var endDate: Date? = nil
     
     // MARK: Lifecycle
     
@@ -61,11 +62,17 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // MARK: Actions
     
     @IBAction func selectStartTime(_ sender: UIButton) {
-        presentPicker(for: selectEndTimeButton, isStartTime: true, view: view, viewController: self)
+        dateTimePicker.isStartTime = true
+        presentPicker(for: selectEndTimeButton,
+                      view: view,
+                      viewController: self)
     }
     
     @IBAction func selectEndTime(_ sender: UIButton) {
-        presentPicker(for: selectEndTimeButton, isStartTime: false, view: view, viewController: self)
+        dateTimePicker.isStartTime = false
+        presentPicker(for: selectEndTimeButton,
+                      view: view,
+                      viewController: self)
     }
     
     @IBAction func tapStartButton(_ sender: Any) {
@@ -240,7 +247,7 @@ extension SleepViewController: DateTimePickerDelegate {
         // TODO: don't let user save if the start date is after end date, or if duration is more than 99 hours
         let time = dateTimePicker.dateTimePicker.date
         
-        if dateTimePicker.titleLabel.text == Text.startTime {
+        if dateTimePicker.isStartTime {
             setTime(for: selectStartTimeButton, to: time)
         } else {
             setTime(for: selectEndTimeButton, to: time)
@@ -281,6 +288,4 @@ final class HalfSizePresentationController: UIPresentationController {
 
 private enum Text {
     static let setTime = "Set time"
-    static let startTime = "Start Time"
-    static let endTime = "End Time"
 }

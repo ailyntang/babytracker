@@ -10,7 +10,6 @@ import UIKit
 
 protocol DateTimeSelector: AnyObject {
     var dateTimePicker: DateTimePicker { get }
-//    var delegate: DateTimePickerDelegate? { get set }
 }
 
 protocol StartDateTimeSelector: DateTimeSelector {
@@ -24,7 +23,6 @@ protocol EndDateTimeSelector: DateTimeSelector {
 extension DateTimeSelector {
     
     func presentPicker(for button: UIButton,
-                       isStartTime: Bool,
                        view: UIView,
                        viewController: UIViewController) {
         
@@ -34,7 +32,7 @@ extension DateTimeSelector {
         timePickerViewController.view.addSubview(dateTimePicker)
         timePickerViewController.view.backgroundColor = .white
         
-        let title = isStartTime ? Text.startTime : Text.endTime
+        let title = dateTimePicker.isStartTime ? Text.startTime : Text.endTime
         dateTimePicker.updateTitle(to: title)
         dateTimePicker.translatesAutoresizingMaskIntoConstraints = false
         dateTimePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
@@ -67,11 +65,7 @@ private enum Text {
      - hours, minutes, seconds
      - a way to calculate the duration, i.e. start date / time, end date /time
  
- - StartDateTimeSelector
- - EndDateTimeSelector
  
- - DateTimeSelector
-      - variable dateTimePicker: TimePicker (rename to DateTimePicker)
  
  - DateTimeSelectorDelegate
       - cancel()

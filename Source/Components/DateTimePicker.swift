@@ -29,6 +29,7 @@ final class DateTimePicker: UIView {
     // MARK: Properties
     
     weak var delegate: DateTimePickerDelegate?
+    var isStartTime: Bool = true
     
     // MARK: Initialisation
     
@@ -36,7 +37,7 @@ final class DateTimePicker: UIView {
         super.init(frame: frame)
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
