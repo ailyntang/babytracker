@@ -10,8 +10,31 @@ import UIKit
 
 struct SleepViewModel {
     
+    // MARK: - Properties
+    
     let buttonTitleAttributes: [NSAttributedString.Key : Any] =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
          NSAttributedString.Key.underlineColor: UIColor.black,
          NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+    
+    private let maximumTimeInterval: Int = 24 * 60 * 60 // 24 hours
+    
+    // MARK: - Methods
+    
+    func isValidDate(startDate: Date?, endDate: Date?) -> Bool {
+        
+        if let startDate = startDate,
+            let endDate = endDate,
+            startDate > endDate {
+            return false
+        }
+        
+        if let startDate = startDate,
+            let endDate = endDate {
+            let timeInterval = Int(DateInterval(start: startDate, end: endDate).duration)
+            return timeInterval < maximumTimeInterval
+        }
+        
+        return true
+    }
 }

@@ -129,24 +129,6 @@ private extension SleepViewController {
     
     // MARK: Timer
     
-    func isValidDate() -> Bool {
-        
-        if let startDate = startDate,
-            let endDate = endDate,
-            startDate > endDate {
-            return false
-        }
-        
-        if let startDate = startDate,
-            let endDate = endDate {
-            let timeInterval = Int(DateInterval(start: startDate, end: endDate).duration)
-            let maximumTimeInterval: Int = 24 * 60 * 60 // 24 hours
-            return timeInterval < maximumTimeInterval
-        }
-        
-        return true
-    }
-    
     func saveTimeStamp(for button: UIButton, to time: Date? = nil) {
         let selectedTime: Date = time ?? Date()
         if button == selectStartTimeButton {
@@ -207,7 +189,7 @@ extension SleepViewController: DateTimePickerDelegate {
         
         saveTimeStamp(for: button, to: date)
         
-        guard isValidDate() else { return }
+        guard viewModel.isValidDate(startDate: startDate, endDate: endDate) else { return }
         updateButtonTitleTo(date, for: button)
 
         if startDate != nil, endDate != nil {
