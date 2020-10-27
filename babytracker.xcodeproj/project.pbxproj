@@ -24,6 +24,7 @@
 		933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* DateTimePicker.swift */; };
 		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
 		93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */; };
+		93A4AFFF2547C1F7007DDB29 /* Timeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFE2547C1F7007DDB29 /* Timeable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		933B15EC252078BA00A3210E /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeSelector.swift; sourceTree = "<group>"; };
+		93A4AFFE2547C1F7007DDB29 /* Timeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */,
+				93A4AFFE2547C1F7007DDB29 /* Timeable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
+				93A4AFFF2547C1F7007DDB29 /* Timeable.swift in Sources */,
 				93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */,
 				933B15DF250B6BCD00A3210E /* HomeViewModel.swift in Sources */,
 				933B15D7250B518C00A3210E /* SceneDelegate.swift in Sources */,

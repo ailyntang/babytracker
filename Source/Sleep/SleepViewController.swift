@@ -25,16 +25,20 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     
     private let viewModel: SleepViewModel
     
+    // Conformance to DateTimeSelector
+    
     private(set) var dateTimePicker: DateTimePicker = DateTimePicker()
     private(set) var startDate: Date? = nil
     private(set) var endDate: Date? = nil
     
-    private var timer: Timer? = nil
-    private var seconds: Int = 0
-    private var minutes: Int = 0
-    private var hours: Int = 0
-    private var shouldUpdateMinutes: Bool = false
-    private var shouldUpdateHours: Bool = false
+    // Conformance to Timeable
+    
+    private(set) var timer: Timer? = nil
+    var seconds: Int = 0
+    var minutes: Int = 0
+    var hours: Int = 0
+    var shouldUpdateMinutes: Bool = false
+    var shouldUpdateHours: Bool = false
     
     // MARK: Lifecycle
     
@@ -89,21 +93,8 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     }
 }
 
-// MARK: - Private methods
+extension SleepViewController: Timeable {
 
-private extension SleepViewController {
-    
-    // MARK: UI
-    
-    func setupUI() {
-        
-        let attributedString = NSAttributedString(string: Text.setTime, attributes: viewModel.buttonTitleAttributes)
-        selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
-        selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
-    }
-    
-    // MARK: Timer
-    
     func stopTimer() {
         timer?.invalidate()
         timer = nil
@@ -121,6 +112,22 @@ private extension SleepViewController {
         let attributedString = NSAttributedString(string: "")
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
     }
+}
+
+// MARK: - Private methods
+
+private extension SleepViewController {
+    
+    // MARK: UI
+    
+    func setupUI() {
+        
+        let attributedString = NSAttributedString(string: Text.setTime, attributes: viewModel.buttonTitleAttributes)
+        selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
+        selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
+    }
+    
+    // MARK: Timer
     
     func setTime(for button: UIButton, to time: Date? = nil) {
         
@@ -205,31 +212,6 @@ private extension SleepViewController {
         hoursLabel.text = viewModel.convertTimeComponentToString(hours)
         minutesLabel.text = viewModel.convertTimeComponentToString(minutes)
         secondsLabel.text = viewModel.convertTimeComponentToString(seconds)
-    }
-    
-    func updateSeconds() {
-        
-        if seconds == 59 {
-            shouldUpdateMinutes = true
-            if minutes == 59 {
-                shouldUpdateHours = true
-            }
-        }
-        viewModel.updateTimeComponent(&seconds)
-    }
-    
-    func updateMinutes() {
-        if shouldUpdateMinutes {
-            viewModel.updateTimeComponent(&minutes)
-            shouldUpdateMinutes = false
-        }
-    }
-
-    func updateHours() {
-        if shouldUpdateHours {
-            viewModel.updateTimeComponent(&hours)
-            shouldUpdateHours = false
-        }
     }
 }
 
