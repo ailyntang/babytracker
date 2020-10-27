@@ -155,11 +155,13 @@ private extension SleepViewController {
         
         // Update duration label
         
+        
         if let startTime = selectStartTimeButton.titleLabel?.text,
             startTime != Text.setTime,
             let endTime = selectEndTimeButton.titleLabel?.text,
             endTime != Text.setTime,
-            endTime != "" {
+            endTime != "",
+            endDate != nil {
             updateDuration(useTimer: false)
         }
     }
@@ -167,32 +169,14 @@ private extension SleepViewController {
     func updateDuration(useTimer: Bool = true) {
         
         if useTimer {
-            updateSeconds()
-            updateMinutes()
-            updateHours()
-            
-        } else if let startTime = startDate,
-            let endTime = endDate {
-            
-            // This should never occur as the user is not allowed to enter an end time before the start time
-            guard startTime < endTime else { return }
-            let durationInSeconds: Int = Int(DateInterval(start: startTime, end: endTime).duration)
-            
-            seconds = durationInSeconds % 60
-
-            let totalMinutes = durationInSeconds / 60
-            minutes = totalMinutes % 60
-            
-            let totalHours = totalMinutes / 60
-            hours = totalHours % 60
-            
+            updateTimeComponents()
         } else {
-            fatalError("Programmer error: unexpectedly nil for start or end time")
+            updateTimeComponents(startDate: startDate, endDate: endDate)
         }
         
-        hoursLabel.text = viewModel.convertTimeComponentToString(hours)
-        minutesLabel.text = viewModel.convertTimeComponentToString(minutes)
-        secondsLabel.text = viewModel.convertTimeComponentToString(seconds)
+        hoursLabel.text = convertTimeComponentToString(hours)
+        minutesLabel.text = convertTimeComponentToString(minutes)
+        secondsLabel.text = convertTimeComponentToString(seconds)
     }
 }
 

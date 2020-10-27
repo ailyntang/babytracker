@@ -53,4 +53,41 @@ extension Timeable {
         default: component += 1
         }
     }
+    
+    func convertTimeComponentToString(_ timeComponent: Int) -> String {
+        if timeComponent < 10 {
+            return "0" + String(timeComponent)
+        } else {
+            return String(timeComponent)
+        }
+    }
+    
+    func updateTimeComponents(startDate: Date? = nil, endDate: Date? = nil) {
+        
+        switch (startDate, endDate) {
+        case (.none, .none):
+            updateSeconds()
+            updateMinutes()
+            updateHours()
+            
+        case (.some, .some):
+            
+            guard let startDate = startDate,
+                let endDate = endDate,
+                startDate < endDate else {
+                    fatalError("Programmer error: unexpected inputs for start or end time")
+            }
+            
+            let durationInSeconds: Int = Int(DateInterval(start: startDate, end: endDate).duration)
+            seconds = durationInSeconds % 60
+            
+            let totalMinutes = durationInSeconds / 60
+            minutes = totalMinutes % 60
+            
+            let totalHours = totalMinutes / 60
+            hours = totalHours % 60
+            
+        default: return
+        }
+    }
 }

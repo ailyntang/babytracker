@@ -14,12 +14,4 @@ struct SleepViewModel {
         [NSAttributedString.Key.foregroundColor: UIColor.black,
          NSAttributedString.Key.underlineColor: UIColor.black,
          NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
-    
-    func convertTimeComponentToString(_ timeComponent: Int) -> String {
-        if timeComponent < 10 {
-            return "0" + String(timeComponent)
-        } else {
-            return String(timeComponent)
-        }
-    }
 }

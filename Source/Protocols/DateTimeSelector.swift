@@ -72,7 +72,7 @@ extension DateTimeSelector {
 // MARK: - Constants
 
 private enum Text {
-    static let setTime = "Set time"
+//    static let setTime = "Set time"
     static let startTime = "Start Time"
     static let endTime = "End Time"
 }
