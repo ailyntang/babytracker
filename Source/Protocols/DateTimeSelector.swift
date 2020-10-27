@@ -72,29 +72,6 @@ extension DateTimeSelector {
 // MARK: - Constants
 
 private enum Text {
-//    static let setTime = "Set time"
     static let startTime = "Start Time"
     static let endTime = "End Time"
 }
-
-
-//class Timer {
-//
-//}
-
-/*
- 
- - HasDuration
-     - hours, minutes, seconds
-     - a way to calculate the duration, i.e. start date / time, end date /time
- 
- 
- 
- - DateTimeSelectorDelegate
-      - cancel()
-      - save()
- 
- - Timeable
-      - variable timer: Timer
-    
- */
