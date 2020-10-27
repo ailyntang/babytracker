@@ -22,38 +22,6 @@ protocol Timeable: AnyObject {
 
 extension Timeable {
 
-    func updateSeconds() {
-        
-        if seconds == 59 {
-            shouldUpdateMinutes = true
-            if minutes == 59 {
-                shouldUpdateHours = true
-            }
-        }
-        updateTimeComponent(&seconds)
-    }
-    
-    func updateMinutes() {
-        if shouldUpdateMinutes {
-            updateTimeComponent(&minutes)
-            shouldUpdateMinutes = false
-        }
-    }
-
-    func updateHours() {
-        if shouldUpdateHours {
-            updateTimeComponent(&hours)
-            shouldUpdateHours = false
-        }
-    }
-    
-    func updateTimeComponent(_ component: inout Int) {
-        switch component {
-        case 59: component = 0
-        default: component += 1
-        }
-    }
-    
     func convertTimeComponentToString(_ timeComponent: Int) -> String {
         if timeComponent < 10 {
             return "0" + String(timeComponent)
@@ -88,6 +56,41 @@ extension Timeable {
             hours = totalHours % 60
             
         default: return
+        }
+    }
+}
+
+private extension Timeable {
+    
+    func updateSeconds() {
+        
+        if seconds == 59 {
+            shouldUpdateMinutes = true
+            if minutes == 59 {
+                shouldUpdateHours = true
+            }
+        }
+        updateTimeComponent(&seconds)
+    }
+    
+    func updateMinutes() {
+        if shouldUpdateMinutes {
+            updateTimeComponent(&minutes)
+            shouldUpdateMinutes = false
+        }
+    }
+
+    func updateHours() {
+        if shouldUpdateHours {
+            updateTimeComponent(&hours)
+            shouldUpdateHours = false
+        }
+    }
+    
+    func updateTimeComponent(_ component: inout Int) {
+        switch component {
+        case 59: component = 0
+        default: component += 1
         }
     }
 }
