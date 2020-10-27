@@ -16,7 +16,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     
     @IBOutlet private weak var selectStartTimeButton: UIButton!
     @IBOutlet private weak var selectEndTimeButton: UIButton!
-    @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var timerButton: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
@@ -24,6 +24,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // MARK: Properties
     
     private let viewModel: SleepViewModel
+    private var isTimerRunning: Bool = false
     
     // Conformance to DateTimeSelector
     
@@ -79,17 +80,20 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
                       viewController: self)
     }
     
-    @IBAction func tapStartButton(_ sender: Any) {
+    @IBAction func tapTimerButton(_ sender: Any) {
         
         if selectStartTimeButton.titleLabel?.text == Text.setTime {
             setTime(for: selectStartTimeButton)
         }
-        
-        if startButton.currentTitle == "START" {
-            startTimer()
-        } else {
+
+        if isTimerRunning {
             stopTimer()
+        } else {
+            startTimer()
+            // TODO: need to update duration label if required
         }
+        
+        isTimerRunning = !isTimerRunning
     }
 }
 
@@ -98,7 +102,7 @@ extension SleepViewController: Timeable {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-        startButton.setTitle("START", for: .normal)
+        timerButton.setTitle("START", for: .normal)
         setTime(for: selectEndTimeButton)
     }
     
@@ -107,7 +111,7 @@ extension SleepViewController: Timeable {
             self?.updateDuration()
         })
         timer?.tolerance = 0.2
-        startButton.setTitle("STOP", for: .normal)
+        timerButton.setTitle("STOP", for: .normal)
         
         let attributedString = NSAttributedString(string: "")
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)

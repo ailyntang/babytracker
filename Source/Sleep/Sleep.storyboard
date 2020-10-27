@@ -86,7 +86,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapStartButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="g6I-4s-0Ky"/>
+                                    <action selector="tapTimerButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="g6I-4s-0Ky"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-U5-2hR">
@@ -194,7 +194,7 @@
                         <outlet property="secondsLabel" destination="4W3-Ch-UBL" id="Ak0-Af-UUR"/>
                         <outlet property="selectEndTimeButton" destination="maI-Hf-MjD" id="lcS-BF-zkb"/>
                         <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
-                        <outlet property="startButton" destination="aFs-FF-lQ5" id="Xxz-rO-c0B"/>
+                        <outlet property="timerButton" destination="aFs-FF-lQ5" id="Xxz-rO-c0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GB-Va-rI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
