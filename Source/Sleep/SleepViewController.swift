@@ -25,7 +25,7 @@ final class SleepViewController: UIViewController {
     
     private let viewModel: SleepViewModel
     
-    private var timePicker: DateTimePicker = DateTimePicker()
+    private var dateTimePicker: DateTimePicker = DateTimePicker()
     private var timer: Timer? = nil
     private var seconds: Int = 0
     private var minutes: Int = 0
@@ -49,7 +49,7 @@ final class SleepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
-        timePicker.delegate = self
+        dateTimePicker.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,16 +102,16 @@ private extension SleepViewController {
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
         let timePickerViewController = UIViewController()
-        timePickerViewController.view.addSubview(timePicker)
+        timePickerViewController.view.addSubview(dateTimePicker)
         timePickerViewController.view.backgroundColor = .white
         
         let title = button == selectStartTimeButton ? Text.startTime : Text.endTime
-        timePicker.updateTitle(to: title)
-        timePicker.translatesAutoresizingMaskIntoConstraints = false
-        timePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
-        timePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
-        timePicker.trailingAnchor.constraint(equalTo: timePickerViewController.view.trailingAnchor).isActive = true
-        timePicker.heightAnchor.constraint(equalTo: timePickerViewController.view.heightAnchor).isActive = true
+        dateTimePicker.updateTitle(to: title)
+        dateTimePicker.translatesAutoresizingMaskIntoConstraints = false
+        dateTimePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
+        dateTimePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
+        dateTimePicker.trailingAnchor.constraint(equalTo: timePickerViewController.view.trailingAnchor).isActive = true
+        dateTimePicker.heightAnchor.constraint(equalTo: timePickerViewController.view.heightAnchor).isActive = true
         
         timePickerViewController.modalPresentationStyle = .custom
         timePickerViewController.transitioningDelegate = self
@@ -261,9 +261,9 @@ extension SleepViewController: DateTimePickerDelegate {
     func save() {
         
         // TODO: don't let user save if the start date is after end date, or if duration is more than 99 hours
-        let time = timePicker.dateTimePicker.date
+        let time = dateTimePicker.dateTimePicker.date
         
-        if timePicker.titleLabel.text == Text.startTime {
+        if dateTimePicker.titleLabel.text == Text.startTime {
             setTime(for: selectStartTimeButton, to: time)
         } else {
             setTime(for: selectEndTimeButton, to: time)
