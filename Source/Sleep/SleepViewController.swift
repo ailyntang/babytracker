@@ -107,7 +107,7 @@ extension SleepViewController: Timeable {
         timer?.invalidate()
         timer = nil
         timerButton.setTitle(Text.save, for: .normal)
-        timerButton.backgroundColor = .green
+        timerButton.backgroundColor = .customGreen
         setTime(for: selectEndTimeButton)
     }
     

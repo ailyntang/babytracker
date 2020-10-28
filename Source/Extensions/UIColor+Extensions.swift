@@ -10,7 +10,8 @@ import UIKit
 
 extension UIColor {
     
-    static let customCyan = UIColor.fromRGBValues(red: 111, green: 207, blue: 229, alpha: 1)
+    static let customCyan = UIColor.fromRGBValues(red: 105, green: 207, blue: 231, alpha: 1)
+    static let customGreen = UIColor.fromRGBValues(red: 138, green: 183, blue: 75, alpha: 1)
 }
 
 extension UIColor {
