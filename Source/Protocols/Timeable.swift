@@ -20,6 +20,7 @@ enum TimerStatus {
 
 protocol Timeable: AnyObject {
     var timer: Timer? { get }
+    var timerStatus: TimerStatus { get }
     var seconds: Int { get set }
     var minutes: Int { get set }
     var hours: Int { get set }

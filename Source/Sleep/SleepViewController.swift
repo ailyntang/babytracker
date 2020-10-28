@@ -36,6 +36,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // Conformance to Timeable
     
     private(set) var timer: Timer? = nil
+    private(set) var timerStatus: TimerStatus = .off
     var seconds: Int = 0
     var minutes: Int = 0
     var hours: Int = 0
