@@ -56,6 +56,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
         dateTimePicker.delegate = self
+        setupUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
