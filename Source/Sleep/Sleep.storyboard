@@ -172,6 +172,13 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXD-B3-twd">
+                                <rect key="frame" x="328" y="818" width="62" height="30"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="tapContinueButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="5WT-Yl-iBd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -182,13 +189,16 @@
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="O4u-9N-vj4"/>
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="top" secondItem="rTs-Du-act" secondAttribute="bottom" constant="24" id="SJ6-FE-ObN"/>
                             <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="rTs-Du-act" secondAttribute="trailing" constant="24" id="UiB-Vl-9ih"/>
+                            <constraint firstAttribute="bottom" secondItem="nXD-B3-twd" secondAttribute="bottom" constant="48" id="VnN-Nx-3rX"/>
                             <constraint firstItem="rTs-Du-act" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="Zu4-Gr-Woc"/>
                             <constraint firstItem="aFs-FF-lQ5" firstAttribute="top" secondItem="Gwq-U5-2hR" secondAttribute="bottom" constant="72" id="eLs-bI-vWk"/>
                             <constraint firstItem="rTs-Du-act" firstAttribute="top" secondItem="dJV-RF-OeK" secondAttribute="top" constant="32" id="k5x-dr-esS"/>
+                            <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="nXD-B3-twd" secondAttribute="trailing" constant="24" id="osR-b6-emD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>
                     </view>
                     <connections>
+                        <outlet property="continueButton" destination="nXD-B3-twd" id="Qsj-wR-95v"/>
                         <outlet property="hoursLabel" destination="aPl-1G-vuU" id="tEK-Qn-Dum"/>
                         <outlet property="minutesLabel" destination="uI3-s8-TBt" id="kTD-0v-QZp"/>
                         <outlet property="secondsLabel" destination="4W3-Ch-UBL" id="Ak0-Af-UUR"/>

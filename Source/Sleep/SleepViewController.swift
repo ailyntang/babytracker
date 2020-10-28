@@ -17,9 +17,10 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     @IBOutlet private weak var selectStartTimeButton: UIButton!
     @IBOutlet private weak var selectEndTimeButton: UIButton!
     @IBOutlet private weak var timerButton: UIButton!
-    @IBOutlet weak var hoursLabel: UILabel!
-    @IBOutlet weak var minutesLabel: UILabel!
-    @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet private weak var hoursLabel: UILabel!
+    @IBOutlet private weak var minutesLabel: UILabel!
+    @IBOutlet private weak var secondsLabel: UILabel!
+    @IBOutlet private weak var continueButton: UIButton!
     
     // MARK: Properties
     
@@ -81,7 +82,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
                       viewController: self)
     }
     
-    @IBAction func tapTimerButton(_ sender: Any) {
+    @IBAction func tapTimerButton(_ sender: UIButton) {
         
         if selectStartTimeButton.titleLabel?.text == Text.setTime {
             setTime(for: selectStartTimeButton)
@@ -94,6 +95,9 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         }
         
         isTimerRunning = !isTimerRunning
+    }
+    
+    @IBAction func tapContinueButton(_ sender: UIButton) {
     }
 }
 
@@ -132,6 +136,8 @@ private extension SleepViewController {
         
         timerButton.backgroundColor = .cyan
         timerButton.layer.cornerRadius = timerButton.frame.width / 2
+        
+        continueButton.tintColor = .cyan
     }
     
     // MARK: Timer
