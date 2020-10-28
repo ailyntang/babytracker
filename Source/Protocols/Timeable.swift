@@ -45,9 +45,8 @@ extension Timeable {
         minutes = totalMinutes % 60
         
         let totalHours = totalMinutes / 60
-        hours = totalHours % 60        
+        hours = totalHours % 60
     }
-    
 }
 
 private extension Timeable {

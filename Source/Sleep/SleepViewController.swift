@@ -90,7 +90,6 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
             stopTimer()
         } else {
             startTimer()
-            // TODO: need to update duration label if required
         }
         
         isTimerRunning = !isTimerRunning
