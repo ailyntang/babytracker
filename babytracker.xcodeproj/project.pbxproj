@@ -25,6 +25,7 @@
 		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
 		93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */; };
 		93A4AFFF2547C1F7007DDB29 /* Timeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFE2547C1F7007DDB29 /* Timeable.swift */; };
+		93A4B00225491A9A007DDB29 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4B00125491A9A007DDB29 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeSelector.swift; sourceTree = "<group>"; };
 		93A4AFFE2547C1F7007DDB29 /* Timeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeable.swift; sourceTree = "<group>"; };
+		93A4B00125491A9A007DDB29 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				933B15E02515982400A3210E /* Sleep */,
 				93A4AFFB25466817007DDB29 /* Protocols */,
 				933B15E5252056D900A3210E /* Components */,
+				93A4B00025491A87007DDB29 /* Extensions */,
 				933B15CA250B518B00A3210E /* Assets.xcassets */,
 				933B15CB250B518B00A3210E /* Supporting Files */,
 				933B15CE250B518B00A3210E /* Startup */,
@@ -204,6 +207,14 @@
 				93A4AFFE2547C1F7007DDB29 /* Timeable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		93A4B00025491A87007DDB29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				93A4B00125491A9A007DDB29 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +354,7 @@
 				933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */,
 				933B15E2251598E100A3210E /* SleepViewController.swift in Sources */,
 				933B15D6250B518C00A3210E /* AppDelegate.swift in Sources */,
+				93A4B00225491A9A007DDB29 /* UIColor+Extensions.swift in Sources */,
 				933B15D2250B518C00A3210E /* HomeViewController.swift in Sources */,
 				93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */,
 				933B15DD250B590800A3210E /* HomeTableViewCell.swift in Sources */,
