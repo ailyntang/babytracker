@@ -8,6 +8,16 @@
 
 import Foundation
 
+// MARK: - Constants
+
+enum TimerStatus {
+    case on
+    case off
+    case save
+}
+
+// MARK: - Timeable protocol
+
 protocol Timeable: AnyObject {
     var timer: Timer? { get }
     var seconds: Int { get set }
@@ -19,6 +29,8 @@ protocol Timeable: AnyObject {
     func startTimer()
     func stopTimer()
 }
+
+// MARK: - Protocol extensions
 
 extension Timeable {
 
@@ -48,6 +60,8 @@ extension Timeable {
         hours = totalHours % 60
     }
 }
+
+// MARK: - Private methods
 
 private extension Timeable {
     
