@@ -25,7 +25,6 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // MARK: Properties
     
     private let viewModel: SleepViewModel
-    private var isTimerRunning: Bool = false
     
     // Conformance to DateTimeSelector
     
@@ -89,13 +88,17 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
             setTime(for: selectStartTimeButton)
         }
 
-        if isTimerRunning {
-            stopTimer()
-        } else {
+        switch timerStatus {
+        case .off:
             startTimer()
+            timerStatus = .on
+        case .on:
+            stopTimer()
+            timerStatus = .save
+        case .save:
+            // TODO: need to add this functionality
+            print("save sleep session")
         }
-        
-        isTimerRunning = !isTimerRunning
     }
     
     @IBAction func tapContinueButton(_ sender: UIButton) {
