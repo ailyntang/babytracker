@@ -214,7 +214,7 @@ extension SleepViewController: DateTimePickerDelegate {
         
         saveTimeStamp(for: button, to: date)
         
-        guard viewModel.isValidDate(startDate: startDate, endDate: endDate) else { return }
+        guard isValidDate(startDate: startDate, endDate: endDate) else { return }
         updateButtonTitleTo(date, for: button)
 
         if startDate != nil, endDate != nil {

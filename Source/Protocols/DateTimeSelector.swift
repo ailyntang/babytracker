@@ -67,6 +67,29 @@ extension DateTimeSelector {
         
         return dateFormatter.string(from: date ?? Date())
     }
+    
+    func isValidDate(startDate: Date?, endDate: Date?) -> Bool {
+        
+        if let startDate = startDate,
+            let endDate = endDate,
+            startDate > endDate {
+            return false
+        }
+        
+        if let startDate = startDate,
+            let endDate = endDate {
+            let timeInterval = Int(DateInterval(start: startDate, end: endDate).duration)
+            let maximumTimeInterval: Int = 24 * 60 * 60 // 24 hours
+            return timeInterval < maximumTimeInterval
+        }
+        
+        if let startDate = startDate,
+            startDate > Date() {
+            return false
+        }
+        
+        return true
+    }
 }
 
 // MARK: - Constants
