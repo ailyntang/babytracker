@@ -32,33 +32,22 @@ extension Timeable {
     
     func updateTimeComponents(startDate: Date? = nil, endDate: Date? = nil) {
         
-        switch (startDate, endDate) {
-        case (.none, .none):
-            updateSeconds()
-            updateMinutes()
-            updateHours()
-            
-        case (.none, .some): return
-            
-        case (.some, .some):
-            guard let startDate = startDate,
-                let endDate = endDate,
-                startDate < endDate else {
-                    fatalError("Programmer error: unexpected inputs for start or end time")
-            }
-            fallthrough
-            
-        default:
-            let durationInSeconds: Int = Int(DateInterval(start: startDate ?? Date(), end: endDate ?? Date()).duration)
-            seconds = durationInSeconds % 60
-            
-            let totalMinutes = durationInSeconds / 60
-            minutes = totalMinutes % 60
-            
-            let totalHours = totalMinutes / 60
-            hours = totalHours % 60
+        if let startDate = startDate,
+            let endDate = endDate,
+            startDate > endDate {
+            fatalError("Programmer error: unexpected inputs for start or end time")
         }
+        
+        let durationInSeconds: Int = Int(DateInterval(start: startDate ?? Date(), end: endDate ?? Date()).duration)
+        seconds = durationInSeconds % 60
+        
+        let totalMinutes = durationInSeconds / 60
+        minutes = totalMinutes % 60
+        
+        let totalHours = totalMinutes / 60
+        hours = totalHours % 60        
     }
+    
 }
 
 private extension Timeable {
