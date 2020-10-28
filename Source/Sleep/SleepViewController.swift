@@ -106,7 +106,8 @@ extension SleepViewController: Timeable {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-        timerButton.setTitle("START", for: .normal)
+        timerButton.setTitle(Text.save, for: .normal)
+        timerButton.backgroundColor = .green
         setTime(for: selectEndTimeButton)
     }
     
@@ -115,7 +116,8 @@ extension SleepViewController: Timeable {
             self?.updateDuration()
         })
         timer?.tolerance = 0.2
-        timerButton.setTitle("STOP", for: .normal)
+        timerButton.setTitle(Text.stop, for: .normal)
+        timerButton.backgroundColor = .customCyan
         
         let attributedString = NSAttributedString(string: "")
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
@@ -134,10 +136,10 @@ private extension SleepViewController {
         selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
         
-        timerButton.backgroundColor = .cyan
+        timerButton.backgroundColor = .customCyan
         timerButton.layer.cornerRadius = timerButton.frame.width / 2
         
-        continueButton.tintColor = .cyan
+        continueButton.tintColor = .customCyan
     }
     
     // MARK: Timer
@@ -243,4 +245,7 @@ final class HalfSizePresentationController: UIPresentationController {
 
 private enum Text {
     static let setTime = "Set time"
+    static let save = "SAVE"
+    static let start = "START"
+    static let stop = "STOP"
 }

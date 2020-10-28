@@ -14,7 +14,7 @@ struct SleepViewModel {
     
     let buttonTitleAttributes: [NSAttributedString.Key : Any] =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.underlineColor: UIColor.cyan,
+         NSAttributedString.Key.underlineColor: UIColor.customCyan,
          NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
     
     private let maximumTimeInterval: Int = 24 * 60 * 60 // 24 hours
