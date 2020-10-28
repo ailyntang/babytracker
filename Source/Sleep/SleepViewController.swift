@@ -129,6 +129,9 @@ private extension SleepViewController {
         let attributedString = NSAttributedString(string: Text.setTime, attributes: viewModel.buttonTitleAttributes)
         selectStartTimeButton.setAttributedTitle(attributedString, for: .normal)
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
+        
+        timerButton.backgroundColor = .cyan
+        timerButton.layer.cornerRadius = timerButton.frame.width / 2
     }
     
     // MARK: Timer
