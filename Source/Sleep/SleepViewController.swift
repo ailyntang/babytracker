@@ -89,12 +89,8 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         }
 
         switch timerStatus {
-        case .off:
-            startTimer()
-            timerStatus = .on
-        case .on:
-            stopTimer()
-            timerStatus = .save
+        case .off: startTimer()
+        case .on: stopTimer()
         case .save:
             // TODO: need to add this functionality
             print("save sleep session")
@@ -102,6 +98,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     }
     
     @IBAction func tapContinueButton(_ sender: UIButton) {
+        startTimer()
     }
 }
 
@@ -110,9 +107,13 @@ extension SleepViewController: Timeable {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
+        timerStatus = .save
+                
         timerButton.setTitle(Text.save, for: .normal)
         timerButton.backgroundColor = .customGreen
         setTime(for: selectEndTimeButton)
+        
+        continueButton.isHidden = false
     }
     
     func startTimer() {
@@ -120,11 +121,15 @@ extension SleepViewController: Timeable {
             self?.updateDuration()
         })
         timer?.tolerance = 0.2
+        timerStatus = .on
+        
         timerButton.setTitle(Text.stop, for: .normal)
         timerButton.backgroundColor = .customCyan
         
         let attributedString = NSAttributedString(string: "")
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
+        
+        continueButton.isHidden = true
     }
 }
 
@@ -143,6 +148,7 @@ private extension SleepViewController {
         timerButton.backgroundColor = .customCyan
         timerButton.layer.cornerRadius = timerButton.frame.width / 2
         
+        continueButton.isHidden = true
         continueButton.tintColor = .customCyan
     }
     
