@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iqq-T9-Lgw">
+        <view contentMode="scaleToFill" id="iqq-T9-Lgw" customClass="ErrorMessage" customModule="babytracker" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -35,6 +35,9 @@
                             <rect key="frame" x="105" y="53.5" width="30" height="30"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="OK"/>
+                            <connections>
+                                <action selector="tapPrimaryActionButton:" destination="iqq-T9-Lgw" eventType="touchUpInside" id="6U1-j2-dw9"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -46,6 +49,10 @@
                 <constraint firstItem="ImT-Zg-m2s" firstAttribute="centerY" secondItem="iqq-T9-Lgw" secondAttribute="centerY" id="Zoe-BT-t3Y"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="primaryActionButton" destination="nxj-CJ-G6g" id="IJ5-4h-fRt"/>
+                <outlet property="titleLabel" destination="Jsf-6Y-FbP" id="x7H-Ng-MSw"/>
+            </connections>
             <point key="canvasLocation" x="92.753623188405811" y="86.383928571428569"/>
         </view>
     </objects>
