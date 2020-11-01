@@ -22,6 +22,7 @@
 		933B15E425159DB200A3210E /* Sleep.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E325159DB200A3210E /* Sleep.storyboard */; };
 		933B15E72520571200A3210E /* DateTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933B15E62520571200A3210E /* DateTimePicker.xib */; };
 		933B15ED252078BA00A3210E /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933B15EC252078BA00A3210E /* DateTimePicker.swift */; };
+		9364E135254E53DF00181309 /* ErrorMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9364E134254E53DF00181309 /* ErrorMessage.xib */; };
 		93A4AFFA2543F29B007DDB29 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */; };
 		93A4AFFD25466825007DDB29 /* DateTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */; };
 		93A4AFFF2547C1F7007DDB29 /* Timeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A4AFFE2547C1F7007DDB29 /* Timeable.swift */; };
@@ -67,6 +68,7 @@
 		933B15E325159DB200A3210E /* Sleep.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sleep.storyboard; sourceTree = "<group>"; };
 		933B15E62520571200A3210E /* DateTimePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTimePicker.xib; sourceTree = "<group>"; };
 		933B15EC252078BA00A3210E /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		9364E134254E53DF00181309 /* ErrorMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorMessage.xib; sourceTree = "<group>"; };
 		93A4AFF92543F29B007DDB29 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		93A4AFFC25466825007DDB29 /* DateTimeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeSelector.swift; sourceTree = "<group>"; };
 		93A4AFFE2547C1F7007DDB29 /* Timeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeable.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				933B15E62520571200A3210E /* DateTimePicker.xib */,
 				933B15EC252078BA00A3210E /* DateTimePicker.swift */,
+				9364E134254E53DF00181309 /* ErrorMessage.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				933B15D4250B518C00A3210E /* LaunchScreen.storyboard in Resources */,
 				933B15D1250B518C00A3210E /* Home.storyboard in Resources */,
 				933B15DB250B571000A3210E /* HomeTableViewCell.xib in Resources */,
+				9364E135254E53DF00181309 /* ErrorMessage.xib in Resources */,
 				933B15E425159DB200A3210E /* Sleep.storyboard in Resources */,
 				933B15D3250B518C00A3210E /* Assets.xcassets in Resources */,
 			);
