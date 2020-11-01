@@ -10,6 +10,7 @@ import UIKit
 
 protocol DateTimeSelector: AnyObject {
     var dateTimePicker: DateTimePicker { get }
+    var errorMessageView: UIView { get }
 }
 
 protocol StartDateTimeSelector: DateTimeSelector {
@@ -43,6 +44,25 @@ extension DateTimeSelector {
         timePickerViewController.modalPresentationStyle = .custom
         timePickerViewController.transitioningDelegate = viewController as? UIViewControllerTransitioningDelegate
         viewController.present(timePickerViewController, animated: true, completion: nil)
+    }
+    
+    func presentErrorMessage(view: UIView,
+                             viewController: UIViewController) {
+        
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        
+        let errorMessageViewController = UIViewController()
+        errorMessageViewController.view.addSubview(errorMessageView)
+        errorMessageViewController.view.backgroundColor = .clear
+        
+        errorMessageView.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageView.topAnchor.constraint(equalTo: errorMessageViewController.view.topAnchor).isActive = true
+        errorMessageView.leadingAnchor.constraint(equalTo: errorMessageViewController.view.leadingAnchor).isActive = true
+        errorMessageView.trailingAnchor.constraint(equalTo: errorMessageViewController.view.trailingAnchor).isActive = true
+        errorMessageView.heightAnchor.constraint(equalTo: errorMessageViewController.view.heightAnchor).isActive = true
+        
+        errorMessageViewController.modalPresentationStyle = .overCurrentContext
+        viewController.present(errorMessageViewController, animated: true, completion: nil)
     }
     
     func makeFormattedDateString(from date: Date? = nil) -> String {

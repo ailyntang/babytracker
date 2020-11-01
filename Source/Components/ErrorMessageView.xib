@@ -5,13 +5,18 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorMessageView" customModule="babytracker" customModuleProvider="target">
+            <connections>
+                <outlet property="lineView" destination="AF3-WQ-DRy" id="jus-WP-HXI"/>
+                <outlet property="primaryActionButton" destination="nxj-CJ-G6g" id="AbW-u1-sB0"/>
+                <outlet property="titleLabel" destination="Jsf-6Y-FbP" id="BhR-52-NFY"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iqq-T9-Lgw" customClass="ErrorMessage" customModule="babytracker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iqq-T9-Lgw">
             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -35,30 +40,18 @@
                             <rect key="frame" x="105" y="53.5" width="30" height="30"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" title="OK"/>
-                            <connections>
-                                <action selector="tapPrimaryActionButton:" destination="iqq-T9-Lgw" eventType="touchUpInside" id="6U1-j2-dw9"/>
-                            </connections>
                         </button>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="zR5-br-ptc"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ImT-Zg-m2s" firstAttribute="centerX" secondItem="iqq-T9-Lgw" secondAttribute="centerX" id="9jK-9r-k89"/>
                 <constraint firstItem="ImT-Zg-m2s" firstAttribute="centerY" secondItem="iqq-T9-Lgw" secondAttribute="centerY" id="Zoe-BT-t3Y"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="primaryActionButton" destination="nxj-CJ-G6g" id="IJ5-4h-fRt"/>
-                <outlet property="titleLabel" destination="Jsf-6Y-FbP" id="x7H-Ng-MSw"/>
-            </connections>
             <point key="canvasLocation" x="92.753623188405811" y="86.383928571428569"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

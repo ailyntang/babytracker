@@ -29,6 +29,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // Conformance to DateTimeSelector
     
     private(set) var dateTimePicker: DateTimePicker = DateTimePicker()
+    private(set) var errorMessageView: UIView = ErrorMessageView()
     private(set) var startDate: Date? = nil
     private(set) var endDate: Date? = nil
     
@@ -214,7 +215,11 @@ extension SleepViewController: DateTimePickerDelegate {
         
         saveTimeStamp(for: button, to: date)
         
-        guard isValidDate(startDate: startDate, endDate: endDate) else { return }
+        guard isValidDate(startDate: startDate, endDate: endDate) else {
+            cancel()
+            presentErrorMessage(view: view, viewController: self)
+            return
+        }
         updateButtonTitleTo(date, for: button)
 
         if startDate != nil, endDate != nil {
