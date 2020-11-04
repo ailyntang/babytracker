@@ -31,18 +31,18 @@ extension DateTimeSelector {
         
         let timePickerViewController = UIViewController()
         timePickerViewController.view.addSubview(dateTimePicker)
-        timePickerViewController.view.backgroundColor = .white
+        timePickerViewController.view.backgroundColor = .clear
         
         let title = dateTimePicker.isStartTime ? Text.startTime : Text.endTime
         dateTimePicker.updateTitle(to: title)
+        
         dateTimePicker.translatesAutoresizingMaskIntoConstraints = false
-        dateTimePicker.topAnchor.constraint(equalTo: timePickerViewController.view.topAnchor).isActive = true
         dateTimePicker.leadingAnchor.constraint(equalTo: timePickerViewController.view.leadingAnchor).isActive = true
         dateTimePicker.trailingAnchor.constraint(equalTo: timePickerViewController.view.trailingAnchor).isActive = true
-        dateTimePicker.heightAnchor.constraint(equalTo: timePickerViewController.view.heightAnchor).isActive = true
+        dateTimePicker.bottomAnchor.constraint(equalTo: timePickerViewController.view.bottomAnchor).isActive = true
+        dateTimePicker.heightAnchor.constraint(equalToConstant: Layout.timePickerHeight).isActive = true
         
-        timePickerViewController.modalPresentationStyle = .custom
-        timePickerViewController.transitioningDelegate = viewController as? UIViewControllerTransitioningDelegate
+        timePickerViewController.modalPresentationStyle = .overCurrentContext
         viewController.present(timePickerViewController, animated: true, completion: nil)
     }
     

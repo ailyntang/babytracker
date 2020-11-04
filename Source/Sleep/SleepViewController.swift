@@ -243,33 +243,6 @@ extension SleepViewController: ErrorMessageViewDelegate {
     func dismiss() {
         dismissModal()
     }
-
-}
-// MARK: - Conformance to UIViewControllerTransitioningDelegate
-
-extension SleepViewController: UIViewControllerTransitioningDelegate {
-    
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        
-        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
-    }
-}
-
-// MARK: - HalfSizePresentationController
-
-final class HalfSizePresentationController: UIPresentationController {
-    
-    override var frameOfPresentedViewInContainerView: CGRect {
-        
-        guard let containerView = containerView else {
-            fatalError("Container view of presentation controller does not exist")
-        }
-        
-        return CGRect(x: 0,
-                      y: containerView.bounds.height - Layout.timePickerHeight,
-                      width: containerView.bounds.width,
-                      height: Layout.timePickerHeight)
-    }
 }
 
 // MARK: - Constants
