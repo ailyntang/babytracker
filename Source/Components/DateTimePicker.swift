@@ -73,4 +73,5 @@ final class DateTimePicker: UIView {
 
 enum Layout {
     static let timePickerHeight: CGFloat = 350.0
+    static let errorMessageHeight: CGFloat = 150.0
 }

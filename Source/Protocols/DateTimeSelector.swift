@@ -56,10 +56,13 @@ extension DateTimeSelector {
         errorMessageViewController.view.backgroundColor = .clear
         
         errorMessageView.translatesAutoresizingMaskIntoConstraints = false
-        errorMessageView.topAnchor.constraint(equalTo: errorMessageViewController.view.topAnchor).isActive = true
-        errorMessageView.leadingAnchor.constraint(equalTo: errorMessageViewController.view.leadingAnchor).isActive = true
-        errorMessageView.trailingAnchor.constraint(equalTo: errorMessageViewController.view.trailingAnchor).isActive = true
-        errorMessageView.heightAnchor.constraint(equalTo: errorMessageViewController.view.heightAnchor).isActive = true
+        errorMessageView.clipsToBounds = true
+        errorMessageView.layer.cornerRadius = 20
+        
+        errorMessageView.centerYAnchor.constraint(equalTo: errorMessageViewController.view.centerYAnchor).isActive = true
+        errorMessageView.leadingAnchor.constraint(equalTo: errorMessageViewController.view.leadingAnchor, constant: 48).isActive = true
+        errorMessageView.trailingAnchor.constraint(equalTo: errorMessageViewController.view.trailingAnchor, constant: -48).isActive = true
+        errorMessageView.heightAnchor.constraint(equalToConstant: Layout.errorMessageHeight).isActive = true
         
         errorMessageViewController.modalPresentationStyle = .overCurrentContext
         viewController.present(errorMessageViewController, animated: true, completion: nil)
