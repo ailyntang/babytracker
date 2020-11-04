@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ErrorMessageViewDelegate: AnyObject {
+    func dismiss()
+}
+
 final class ErrorMessageView: UIView {
     
     // MARK: Outlets
@@ -15,6 +19,10 @@ final class ErrorMessageView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var primaryActionButton: UIButton!
     @IBOutlet private weak var lineView: UIView!
+    
+    // MARK: Properties
+    
+    weak var delegate: ErrorMessageViewDelegate?
     
     // MARK: Initialisation
     
@@ -41,5 +49,10 @@ final class ErrorMessageView: UIView {
     // MARK: Methods
     
     @IBAction func tapPrimaryActionButton(_ sender: UIButton) {
+        delegate?.dismiss()
+    }
+    
+    func updateMessage(to message: String) {
+        titleLabel.text = message
     }
 }
