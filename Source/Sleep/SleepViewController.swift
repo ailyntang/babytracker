@@ -29,7 +29,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     // Conformance to DateTimeSelector
     
     private(set) var dateTimePicker: DateTimePicker = DateTimePicker()
-    private(set) var errorMessageView: UIView = ErrorMessageView()
+    private(set) var errorMessageView: ErrorMessageView = ErrorMessageView()
     private(set) var startDate: Date? = nil
     private(set) var endDate: Date? = nil
     
@@ -58,6 +58,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         super.viewDidLoad()
         navigationItem.title = "Add a sleep session"
         dateTimePicker.delegate = self
+        errorMessageView.delegate = self
         setupUI()
     }
     
@@ -198,6 +199,13 @@ private extension SleepViewController {
         minutesLabel.text = convertTimeComponentToString(minutes)
         secondsLabel.text = convertTimeComponentToString(seconds)
     }
+    
+    // MARK: Dismiss modal
+    
+    func dismissModal() {
+        view.backgroundColor = UIColor.white.withAlphaComponent(1)
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Conformance to TimePickerDelegate
@@ -205,8 +213,7 @@ private extension SleepViewController {
 extension SleepViewController: DateTimePickerDelegate {
     
     func cancel() {
-        view.backgroundColor = UIColor.white.withAlphaComponent(1)
-        dismiss(animated: true, completion: nil)
+        dismissModal()
     }
     
     func save() {
@@ -229,6 +236,15 @@ extension SleepViewController: DateTimePickerDelegate {
     }
 }
 
+// MARK: - Conformance to ErrorMessageViewDelegate
+
+extension SleepViewController: ErrorMessageViewDelegate {
+    
+    func dismiss() {
+        dismissModal()
+    }
+
+}
 // MARK: - Conformance to UIViewControllerTransitioningDelegate
 
 extension SleepViewController: UIViewControllerTransitioningDelegate {

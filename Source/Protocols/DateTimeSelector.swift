@@ -10,7 +10,7 @@ import UIKit
 
 protocol DateTimeSelector: AnyObject {
     var dateTimePicker: DateTimePicker { get }
-    var errorMessageView: UIView { get }
+    var errorMessageView: ErrorMessageView { get }
 }
 
 protocol StartDateTimeSelector: DateTimeSelector {
