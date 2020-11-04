@@ -15,7 +15,6 @@ final class ErrorMessageView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var primaryActionButton: UIButton!
     @IBOutlet private weak var lineView: UIView!
-    // TODO: figure out why the line view is not showing
     
     // MARK: Initialisation
     

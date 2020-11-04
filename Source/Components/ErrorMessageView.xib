@@ -42,6 +42,10 @@
                             <state key="normal" title="OK"/>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="AF3-WQ-DRy" firstAttribute="leading" secondItem="ImT-Zg-m2s" secondAttribute="leading" id="Y3O-A9-QaM"/>
+                        <constraint firstAttribute="trailing" secondItem="AF3-WQ-DRy" secondAttribute="trailing" id="fsj-MK-HsE"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="zR5-br-ptc"/>
