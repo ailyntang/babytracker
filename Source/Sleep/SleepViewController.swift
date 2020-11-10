@@ -95,9 +95,8 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         case .off: startTimer()
         case .on: stopTimer()
         case .save:
-            // TODO: need to add this functionality
-            print("save sleep session")
             viewModel.save()
+            navigationController?.popViewController(animated: true)
         }
     }
     
