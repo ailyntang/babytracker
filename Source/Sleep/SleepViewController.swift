@@ -97,6 +97,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         case .save:
             // TODO: need to add this functionality
             print("save sleep session")
+            viewModel.save()
         }
     }
     
