@@ -30,8 +30,6 @@ struct SleepViewModel {
         database.createTable()
         database.insert(start: Int(start.timeIntervalSince1970),
                         end: Int(end.timeIntervalSince1970))
-        let sleepSessions = database.read()
-        print(sleepSessions)
     }
     
     func clearSleepTable() {

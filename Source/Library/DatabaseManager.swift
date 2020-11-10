@@ -105,7 +105,6 @@ final class DatabaseManager {
         if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("All rows deleted from table")
-                read()
             } else {
                 print("Unable to delete all rows from the table")
             }

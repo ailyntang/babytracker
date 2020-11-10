@@ -61,7 +61,6 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         dateTimePicker.delegate = self
         errorMessageView.delegate = self
         setupUI()
-        viewModel.clearSleepTable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
