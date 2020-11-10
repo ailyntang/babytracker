@@ -22,17 +22,24 @@ struct SleepViewModel {
     
     // MARK: - Methods
     
-    func save() {
+    func save(start: Date?, end: Date?) {
+        guard let start = start, let end = end else {
+            fatalError("Programmer error: Unable to save sleep session. Missing the start or end date")
+        }
+        
         database.createTable()
-        database.insert(id: 1, start: 2, end: 3)
-        database.insert(id: 11, start: 21, end: 31)
+        database.insert(start: Int(start.timeIntervalSince1970),
+                        end: Int(end.timeIntervalSince1970))
         let sleepSessions = database.read()
         print(sleepSessions)
+    }
+    
+    func clearSleepTable() {
+        database.deleteAllRows()
     }
 }
 
 struct SleepSession {
-    let id: Int
     let start: Int
     let end: Int
 }

@@ -40,8 +40,7 @@ final class DatabaseManager {
     func createTable() {
         let createStatement = """
         CREATE TABLE IF NOT EXISTS sleep(
-        id INTEGER PRIMARY KEY,
-        start INTEGER NOT NULL,
+        start INTEGER PRIMARY KEY,
         end INTEGER NOT NULL);
         """
         
@@ -61,17 +60,12 @@ final class DatabaseManager {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(id: Int, start: Int, end: Int) {
-        let sleepSessions = read()
-        for session in sleepSessions {
-            if session.id == id { return }
-        }
-        let insertStatementString = "INSERT INTO sleep (id, start, end) VALUES (?, ?, ?);"
+    func insert(start: Int, end: Int) {
+        let insertStatementString = "INSERT INTO sleep (start, end) VALUES (?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(insertStatement, 1, Int32(id))
-            sqlite3_bind_int(insertStatement, 2, Int32(start))
-            sqlite3_bind_int(insertStatement, 3, Int32(end))
+            sqlite3_bind_int(insertStatement, 1, Int32(start))
+            sqlite3_bind_int(insertStatement, 2, Int32(end))
 
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
@@ -91,17 +85,33 @@ final class DatabaseManager {
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let id = sqlite3_column_int(queryStatement, 0)
                 let start = sqlite3_column_int(queryStatement, 1)
                 let end = sqlite3_column_int(queryStatement, 2)
-                sleepSessions.append(SleepSession(id: Int(id), start: Int(start), end: Int(end)))
+                sleepSessions.append(SleepSession(start: Int(start), end: Int(end)))
                 print("Query Result:")
-                print("\(id) | \(start) | \(end)")
+                print("\(start) | \(end)")
             }
         } else {
             print("SELECT statement could not be prepared")
         }
         sqlite3_finalize(queryStatement)
         return sleepSessions
+    }
+    
+    func deleteAllRows() {
+        let deleteStatementString = "DELETE FROM sleep;"
+        var deleteStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                print("All rows deleted from table")
+                read()
+            } else {
+                print("Unable to delete all rows from the table")
+            }
+        } else {
+            print("DELETE statement could not be prepared")
+        }
+        sqlite3_finalize(deleteStatement)
     }
 }
