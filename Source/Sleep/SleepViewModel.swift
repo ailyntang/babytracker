@@ -27,7 +27,10 @@ struct SleepViewModel {
             fatalError("Programmer error: Unable to save sleep session. Missing the start or end date")
         }
         
-        database.createTable()
+        if !(database.doesTableExist(tableName: SQLTables.sleep.rawValue)) {
+            database.createTable()
+        }
+        
         database.insert(start: Int(start.timeIntervalSince1970),
                         end: Int(end.timeIntervalSince1970))
     }

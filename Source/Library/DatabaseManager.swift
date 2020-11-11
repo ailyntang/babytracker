@@ -9,6 +9,10 @@
 import Foundation
 import SQLite3
 
+enum SQLTables: String {
+    case sleep
+}
+
 final class DatabaseManager {
     
     private let databasePath: String = "database.sql"
@@ -37,6 +41,24 @@ final class DatabaseManager {
         }
     }
     
+    func doesTableExist(tableName: String) -> Bool {
+        let sqlString = "SELECT name FROM sqlite_master WHERE type='table' AND name='\(tableName)';"
+        var doesTableExistStatement: OpaquePointer? = nil
+
+        if sqlite3_prepare_v2(db, sqlString, -1, &doesTableExistStatement,  nil) == SQLITE_OK {
+            
+            if sqlite3_step(doesTableExistStatement) == SQLITE_ROW {
+                return true
+            } else {
+                print("table does not exist, or there are no rows")
+                return false
+            }
+        } else {
+            print("Unable to prepare statement to check if table exists")
+            return false
+        }
+    }
+    
     func createTable() {
         let createStatement = """
         CREATE TABLE IF NOT EXISTS sleep(
@@ -50,12 +72,12 @@ final class DatabaseManager {
         {
             if sqlite3_step(createTableStatement) == SQLITE_DONE
             {
-                print("Table created")
+                print("Table created or table already exists")
             } else {
-                print("Table could not be created:\n\(sqlString)")
+                print("Table could not be created")
             }
         } else {
-            print("CREATE TABLE statement could not be prepared:\n\(sqlString)")
+            print("CREATE TABLE statement could not be prepared")
         }
         sqlite3_finalize(createTableStatement)
     }
