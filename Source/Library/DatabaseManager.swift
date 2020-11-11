@@ -9,8 +9,10 @@
 import Foundation
 import SQLite3
 
-enum SQLTables: String {
+enum Event: String {
     case sleep
+    case feed
+    case diaper
 }
 
 final class DatabaseManager {
@@ -110,7 +112,7 @@ final class DatabaseManager {
                 let start = sqlite3_column_int(queryStatement, 1)
                 let end = sqlite3_column_int(queryStatement, 2)
                 sleepSessions.append(SleepSession(start: Int(start), end: Int(end)))
-//                print("Query Result: \(start) | \(end)")
+                print("Query Result: \(start) | \(end)")
             }
         } else {
             print("SELECT statement could not be prepared")
