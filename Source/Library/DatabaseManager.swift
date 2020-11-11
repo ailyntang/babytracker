@@ -100,7 +100,7 @@ final class DatabaseManager {
         sqlite3_finalize(insertStatement)
     }
 
-    func read() -> [SleepSession] {
+    func readAll() -> [SleepSession] {
         let queryStatementString = "SELECT * FROM sleep;"
         var queryStatement: OpaquePointer? = nil
         var sleepSessions : [SleepSession] = []
@@ -110,14 +110,35 @@ final class DatabaseManager {
                 let start = sqlite3_column_int(queryStatement, 1)
                 let end = sqlite3_column_int(queryStatement, 2)
                 sleepSessions.append(SleepSession(start: Int(start), end: Int(end)))
-                print("Query Result:")
-                print("\(start) | \(end)")
+//                print("Query Result: \(start) | \(end)")
             }
         } else {
             print("SELECT statement could not be prepared")
         }
         sqlite3_finalize(queryStatement)
         return sleepSessions
+    }
+    
+    func readMostRecent() -> SleepSession? {
+        let queryStatementString = "SELECT * FROM sleep ORDER BY end DESC LIMIT 1"
+        var queryStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                let start = sqlite3_column_int(queryStatement, 1)
+                let end = sqlite3_column_int(queryStatement, 2)
+                print(start)
+                print(end)
+                return SleepSession(start: Int(start), end: Int(end))
+            } else {
+                print("Error: no rows exist in the table")
+                return nil
+            }
+        } else {
+            print("Error: could not prepare read most recent statement")
+            return nil
+        }
     }
     
     func deleteAllRows() {
