@@ -57,9 +57,7 @@ final class HomeViewModel {
     
     
     private func convertSecondsIntoHHMMSS(input: Int) -> String {
-//        1998
-        
-        let seconds = input % 60 // 33.3, so it's
+        let seconds = input % 60
         
         let totalMinutes = input / 60
         let minutes = totalMinutes % 60

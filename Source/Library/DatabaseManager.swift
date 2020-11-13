@@ -57,24 +57,24 @@ final class DatabaseManager {
             }
         } else {
             print("Unable to prepare statement to check if table exists")
-            return false
         }
+        sqlite3_finalize(doesTableExistStatement)
+        return false
     }
     
     func createTable() {
         let createStatement = """
         CREATE TABLE IF NOT EXISTS sleep(
-        start INTEGER PRIMARY KEY,
-        end INTEGER NOT NULL);
+        start INTEGER NOT NULL,
+        end INTEGER PRIMARY KEY);
         """
         
         let sqlString = createStatement
         var createTableStatement: OpaquePointer? = nil
-        if sqlite3_prepare_v2(db, sqlString, -1, &createTableStatement, nil) == SQLITE_OK
-        {
+        if sqlite3_prepare_v2(db, sqlString, -1, &createTableStatement, nil) == SQLITE_OK {
             if sqlite3_step(createTableStatement) == SQLITE_DONE
             {
-                print("Table created or table already exists")
+                print("Table created")
             } else {
                 print("Table could not be created")
             }
@@ -124,6 +124,7 @@ final class DatabaseManager {
     func readMostRecent() -> SleepSession? {
         let queryStatementString = "SELECT * FROM sleep ORDER BY end DESC LIMIT 1"
         var queryStatement: OpaquePointer? = nil
+        var sleepSession: SleepSession? = nil
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             
@@ -132,15 +133,15 @@ final class DatabaseManager {
                 let end = sqlite3_column_int(queryStatement, 2)
                 print(start)
                 print(end)
-                return SleepSession(start: Int(start), end: Int(end))
+                sleepSession = SleepSession(start: Int(start), end: Int(end))
             } else {
                 print("Error: no rows exist in the table")
-                return nil
             }
         } else {
             print("Error: could not prepare read most recent statement")
-            return nil
         }
+        sqlite3_finalize(queryStatement)
+        return sleepSession
     }
     
     func deleteAllRows() {
@@ -155,6 +156,22 @@ final class DatabaseManager {
             }
         } else {
             print("DELETE statement could not be prepared")
+        }
+        sqlite3_finalize(deleteStatement)
+    }
+    
+    func delete(table: String) {
+        let deleteStatementString = "DROP TABLE sleep;"
+        var deleteStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+            if sqlite3_step(deleteStatement) == SQLITE_DROP_TABLE {
+                print("Table deleted")
+            } else {
+                print("Table not deleted")
+            }
+        } else {
+            print("Unable to prepare delete table statement")
         }
         sqlite3_finalize(deleteStatement)
     }
