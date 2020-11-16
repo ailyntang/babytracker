@@ -43,14 +43,24 @@ final class HomeViewModel {
     // MARK: - Methods
     
     private func makeDetailLabel(for event: Event) -> String {
+//        database.delete(table: "sleep")
+        return ""
+    }
+    
+    
+    private func makeDetailLabel2(for event: Event) -> String {
+//        database.deleteAllRows()
+//        database.delete(table: "sleep")
+        
         let sleepSession: SleepSession? = database.readMostRecent()
         
         guard let start = sleepSession?.start, let end = sleepSession?.end else { return "" }
         
         let timeNow = Int(Date().timeIntervalSince1970)
         print("time now: " + String(timeNow))
+        print("recorded start: " + String(start))
+        print("recorded end: " + String(end))
         
-        database.readAll()
         return convertSecondsIntoHHMMSS(input: timeNow - end)
         
     }

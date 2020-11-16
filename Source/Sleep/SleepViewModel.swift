@@ -27,16 +27,21 @@ struct SleepViewModel {
             fatalError("Programmer error: Unable to save sleep session. Missing the start or end date")
         }
         
-//        if !(database.doesTableExist(tableName: Event.sleep.rawValue)) {
-//            database.createTable()
-//        }
-        database.createTable()
-        database.insert(start: Int(start.timeIntervalSince1970),
+        if !(database.doesTableExist(tableName: Event.sleep.rawValue)) {
+            database.createTable()
+        }
+        
+        database.insert(id: 2232,
+                        start: Int(start.timeIntervalSince1970),
                         end: Int(end.timeIntervalSince1970))
     }
     
     func clearSleepTable() {
         database.deleteAllRows()
+    }
+    
+    func readAll() {
+        database.readAll()
     }
 }
 

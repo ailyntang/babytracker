@@ -63,17 +63,18 @@ final class DatabaseManager {
     }
     
     func createTable() {
+        
         let createStatement = """
         CREATE TABLE IF NOT EXISTS sleep(
+        id INTEGER PRIMARY KEY,
         start INTEGER NOT NULL,
-        end INTEGER PRIMARY KEY);
+        end INTEGER NOT NULL);
         """
         
         let sqlString = createStatement
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, sqlString, -1, &createTableStatement, nil) == SQLITE_OK {
-            if sqlite3_step(createTableStatement) == SQLITE_DONE
-            {
+            if sqlite3_step(createTableStatement) == SQLITE_DONE {
                 print("Table created")
             } else {
                 print("Table could not be created")
@@ -84,21 +85,25 @@ final class DatabaseManager {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(start: Int, end: Int) {
-        let insertStatementString = "INSERT INTO sleep (start, end) VALUES (?, ?);"
+    func insert(id: Int, start: Int, end: Int) {
+        print("Start: \(start) | End: \(end)")
+        let insertStatementString = "INSERT INTO sleep (id, start, end) VALUES (?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
+        
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(insertStatement, 1, Int32(start))
-            sqlite3_bind_int(insertStatement, 2, Int32(end))
+            sqlite3_bind_int(insertStatement, 1, Int32(id))
+            sqlite3_bind_int(insertStatement, 2, Int32(start))
+            sqlite3_bind_int(insertStatement, 3, Int32(end))
 
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
             } else {
-                print("Could not insert row.")
+                print("Could not insert row: check primary key is unique")
             }
         } else {
             print("INSERT statement could not be prepared.")
         }
+        readAll()
         sqlite3_finalize(insertStatement)
     }
 
@@ -115,7 +120,7 @@ final class DatabaseManager {
                 print("Query Result: \(start) | \(end)")
             }
         } else {
-            print("SELECT statement could not be prepared")
+            print("Read all: SELECT statement could not be prepared")
         }
         sqlite3_finalize(queryStatement)
         return sleepSessions
@@ -131,8 +136,6 @@ final class DatabaseManager {
             if sqlite3_step(queryStatement) == SQLITE_ROW {
                 let start = sqlite3_column_int(queryStatement, 1)
                 let end = sqlite3_column_int(queryStatement, 2)
-                print(start)
-                print(end)
                 sleepSession = SleepSession(start: Int(start), end: Int(end))
             } else {
                 print("Error: no rows exist in the table")
