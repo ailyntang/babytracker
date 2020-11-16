@@ -23,9 +23,8 @@ final class HomeViewModel {
         return HomeCellViewModel(icon: UIImage(named: "Moon"),
                                  titleLabel: "Sleeping",
                                  detailLabel: makeDetailLabel(for: Event.sleep),
-                                 // detailLabel: "2h 38m - 3h 02m ago",
-            durationLabel: "00:46:23",
-            storyboardID: "Sleep")
+                                 durationLabel: "00:46:23",
+                                 storyboardID: "Sleep")
     }()
     
     private let feedingCellViewModel = HomeCellViewModel(icon: UIImage(named: "Moon"),
@@ -44,18 +43,16 @@ final class HomeViewModel {
     
     private func makeDetailLabel(for event: Event) -> String {
         let sleepSession: SleepSession? = database.readMostRecent()
-        
         guard let start = sleepSession?.start, let end = sleepSession?.end else { return "" }
         
         let timeNow = Int(Date().timeIntervalSince1970)
-        print("time now: " + String(timeNow))
-        print("recorded start: " + String(start))
-        print("recorded end: " + String(end))
+        let timeSinceLastSleep = convertSecondsIntoHoursAndMins(input: timeNow - end)
+        let durationOfLastSleep = convertSecondsIntoHoursAndMins(input: end - start)
         
-        return convertSecondsIntoHHMMSS(input: timeNow - end)
+        return durationOfLastSleep + " - " + timeSinceLastSleep + " ago"
     }
     
-    private func convertSecondsIntoHHMMSS(input: Int) -> String {
+    private func convertSecondsIntoHoursAndMins(input: Int) -> String {
         let seconds = input % 60
         
         let totalMinutes = input / 60
@@ -64,6 +61,6 @@ final class HomeViewModel {
         let totalHours = totalMinutes / 60
         let hours = totalHours % 60
         
-        return "\(hours):\(minutes):\(seconds)"
+        return String(hours) + "h " + String(minutes) + "m"
     }
 }
