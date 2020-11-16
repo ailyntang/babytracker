@@ -31,8 +31,7 @@ struct SleepViewModel {
             database.createTable()
         }
         
-        database.insert(id: 2232,
-                        start: Int(start.timeIntervalSince1970),
+        database.insert(start: Int(start.timeIntervalSince1970),
                         end: Int(end.timeIntervalSince1970))
     }
     

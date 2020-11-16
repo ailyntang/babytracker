@@ -85,13 +85,12 @@ final class DatabaseManager {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(id: Int, start: Int, end: Int) {
+    func insert(start: Int, end: Int) {
         print("Start: \(start) | End: \(end)")
         let insertStatementString = "INSERT INTO sleep (id, start, end) VALUES (?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(insertStatement, 1, Int32(id))
             sqlite3_bind_int(insertStatement, 2, Int32(start))
             sqlite3_bind_int(insertStatement, 3, Int32(end))
 
@@ -103,7 +102,6 @@ final class DatabaseManager {
         } else {
             print("INSERT statement could not be prepared.")
         }
-        readAll()
         sqlite3_finalize(insertStatement)
     }
 
@@ -114,10 +112,11 @@ final class DatabaseManager {
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = sqlite3_column_int(queryStatement, 0)
                 let start = sqlite3_column_int(queryStatement, 1)
                 let end = sqlite3_column_int(queryStatement, 2)
                 sleepSessions.append(SleepSession(start: Int(start), end: Int(end)))
-                print("Query Result: \(start) | \(end)")
+                print("Query Result: \(id): \(start) | \(end)")
             }
         } else {
             print("Read all: SELECT statement could not be prepared")
