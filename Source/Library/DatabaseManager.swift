@@ -165,7 +165,7 @@ final class DatabaseManager {
         var deleteStatement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
-            if sqlite3_step(deleteStatement) == SQLITE_DROP_TABLE {
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("Table deleted")
             } else {
                 print("Table not deleted")
