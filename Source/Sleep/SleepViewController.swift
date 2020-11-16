@@ -21,6 +21,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     @IBOutlet private weak var hoursLabel: UILabel!
     @IBOutlet private weak var minutesLabel: UILabel!
     @IBOutlet private weak var secondsLabel: UILabel!
+    @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var continueButton: UIButton!
     
     // MARK: Properties
@@ -65,8 +66,7 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        timer?.invalidate()
-        timer = nil
+        clearTimer()
     }
     
     // MARK: Actions
@@ -100,6 +100,16 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
         }
     }
     
+    @IBAction func tapResetButton(_ sender: UIButton) {
+        clearTimer()
+        timerStatus = .off
+        
+        timerButton.setTitle(Text.start, for: .normal)
+        timerButton.backgroundColor = .customCyan
+        
+        setupUI()
+    }
+    
     @IBAction func tapContinueButton(_ sender: UIButton) {
         startTimer()
     }
@@ -108,14 +118,14 @@ final class SleepViewController: UIViewController, StartDateTimeSelector, EndDat
 extension SleepViewController: Timeable {
 
     func stopTimer() {
-        timer?.invalidate()
-        timer = nil
+        clearTimer()
         timerStatus = .save
                 
         timerButton.setTitle(Text.save, for: .normal)
         timerButton.backgroundColor = .customGreen
         setTime(for: selectEndTimeButton)
         
+        resetButton.isHidden = false
         continueButton.isHidden = false
     }
     
@@ -132,7 +142,13 @@ extension SleepViewController: Timeable {
         let attributedString = NSAttributedString(string: "")
         selectEndTimeButton.setAttributedTitle(attributedString, for: .normal)
         
+        resetButton.isHidden = true
         continueButton.isHidden = true
+    }
+    
+    func clearTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }
 
@@ -150,6 +166,9 @@ private extension SleepViewController {
         
         timerButton.backgroundColor = .customCyan
         timerButton.layer.cornerRadius = timerButton.frame.width / 2
+        
+        resetButton.isHidden = true
+        resetButton.tintColor = .customCyan
         
         continueButton.isHidden = true
         continueButton.tintColor = .customCyan

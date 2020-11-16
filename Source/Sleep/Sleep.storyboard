@@ -172,28 +172,42 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXD-B3-twd">
-                                <rect key="frame" x="328" y="818" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <action selector="tapContinueButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="5WT-Yl-iBd"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-XG-2Xi">
+                                <rect key="frame" x="60" y="816" width="294" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gew-VT-OZO">
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="tapContinueButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="DgV-H7-44B"/>
+                                            <action selector="tapResetButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="ztv-w4-VS3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXD-B3-twd">
+                                        <rect key="frame" x="152" y="0.0" width="142" height="30"/>
+                                        <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="tapContinueButton:" destination="Fzc-xZ-cSu" eventType="touchUpInside" id="5WT-Yl-iBd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="T3o-oz-u0L" secondAttribute="trailing" constant="24" id="221-6S-ZLU"/>
                             <constraint firstItem="Gwq-U5-2hR" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="2nb-CW-OLv"/>
                             <constraint firstItem="aFs-FF-lQ5" firstAttribute="centerX" secondItem="08y-rR-zjD" secondAttribute="centerX" id="4vE-0v-tic"/>
+                            <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="IyY-XG-2Xi" secondAttribute="trailing" constant="60" id="AGC-hZ-pH3"/>
                             <constraint firstItem="Gwq-U5-2hR" firstAttribute="top" secondItem="T3o-oz-u0L" secondAttribute="bottom" constant="64" id="EgQ-1c-VQa"/>
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="O4u-9N-vj4"/>
                             <constraint firstItem="T3o-oz-u0L" firstAttribute="top" secondItem="rTs-Du-act" secondAttribute="bottom" constant="24" id="SJ6-FE-ObN"/>
                             <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="rTs-Du-act" secondAttribute="trailing" constant="24" id="UiB-Vl-9ih"/>
-                            <constraint firstAttribute="bottom" secondItem="nXD-B3-twd" secondAttribute="bottom" constant="48" id="VnN-Nx-3rX"/>
                             <constraint firstItem="rTs-Du-act" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="24" id="Zu4-Gr-Woc"/>
                             <constraint firstItem="aFs-FF-lQ5" firstAttribute="top" secondItem="Gwq-U5-2hR" secondAttribute="bottom" constant="72" id="eLs-bI-vWk"/>
                             <constraint firstItem="rTs-Du-act" firstAttribute="top" secondItem="dJV-RF-OeK" secondAttribute="top" constant="32" id="k5x-dr-esS"/>
-                            <constraint firstItem="dJV-RF-OeK" firstAttribute="trailing" secondItem="nXD-B3-twd" secondAttribute="trailing" constant="24" id="osR-b6-emD"/>
+                            <constraint firstItem="dJV-RF-OeK" firstAttribute="bottom" secondItem="IyY-XG-2Xi" secondAttribute="bottom" constant="16" id="mSb-x8-FE9"/>
+                            <constraint firstItem="IyY-XG-2Xi" firstAttribute="leading" secondItem="dJV-RF-OeK" secondAttribute="leading" constant="60" id="sZs-vs-qN8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dJV-RF-OeK"/>
                     </view>
@@ -201,6 +215,7 @@
                         <outlet property="continueButton" destination="nXD-B3-twd" id="Qsj-wR-95v"/>
                         <outlet property="hoursLabel" destination="aPl-1G-vuU" id="tEK-Qn-Dum"/>
                         <outlet property="minutesLabel" destination="uI3-s8-TBt" id="kTD-0v-QZp"/>
+                        <outlet property="resetButton" destination="gew-VT-OZO" id="6ff-jC-Uz0"/>
                         <outlet property="secondsLabel" destination="4W3-Ch-UBL" id="Ak0-Af-UUR"/>
                         <outlet property="selectEndTimeButton" destination="maI-Hf-MjD" id="lcS-BF-zkb"/>
                         <outlet property="selectStartTimeButton" destination="l27-KX-oQe" id="Y5V-lv-6bX"/>
